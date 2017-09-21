@@ -27292,6 +27292,32 @@ EOF
 
   parse-type = callPackage ../development/python-modules/parse-type { };
 
+  catkin_pkg = callPackage ../development/python-modules/catkin_pkg { };
+
+  catkin_tools = callPackage ../development/python-modules/catkin_tools { };
+
+  markerlib = callPackage ../development/python-modules/markerlib { };
+
+  osrf_pycommon = callPackage ../development/python-modules/osrf_pycommon { };
+
+  rosdep = callPackage ../development/python-modules/rosdep { };
+
+  rosdistro = callPackage ../development/python-modules/rosdistro { };
+
+  rosinstall = callPackage ../development/python-modules/rosinstall { };
+
+  rosinstall-generator = callPackage ../development/python-modules/rosinstall-generator { };
+
+  rospkg = callPackage ../development/python-modules/rospkg { };
+
+  vcstools = callPackage ../development/python-modules/vcstools { };
+
+  wstool = callPackage ../development/python-modules/wstool { };
+
+  bloom = callPackage ../development/python-modules/bloom { };
+
+  empy = callPackage ../development/python-modules/empy { };
+
 });
 
 in fix' (extends overrides packages)

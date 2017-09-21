@@ -1,0 +1,13 @@
+diff -r -C 3 catkin_pkg-0.3.6.orig/setup.py catkin_pkg-0.3.6/setup.py
+*** catkin_pkg-0.3.6.orig/setup.py	2017-09-19 12:57:49.124174584 +0300
+--- catkin_pkg-0.3.6/setup.py	2017-09-19 12:57:56.735149096 +0300
+***************
+*** 31,37 ****
+      'long_description': 'Library for retrieving information about catkin packages.',
+      'license': 'BSD',
+      'install_requires': [
+-         'argparse',
+          'docutils',
+          'python-dateutil'
+      ],
+--- 31,36 ----
