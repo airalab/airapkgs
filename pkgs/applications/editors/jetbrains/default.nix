@@ -253,19 +253,6 @@ in
     update-channel = "gogland_1.0_EAP";
   };
 
-  idea14-community = buildIdea rec {
-    name = "idea-community-${version}";
-    version = "14.1.7";
-    description = "Integrated Development Environment (IDE) by Jetbrains, community edition";
-    license = stdenv.lib.licenses.asl20;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/idea/ideaIC-${version}.tar.gz";
-      sha256 = "1i4mdjm9dd6zvxlpdgd3bqg45ir0cfc9hl55cdc0hg5qwbz683fz";
-    };
-    wmClass = "jetbrains-idea-ce";
-    update-channel = "IDEA14.1";
-  };
-
   idea-community = buildIdea rec {
     name = "idea-community-${version}";
     version = "2017.2.2"; /* updated by script */
@@ -277,32 +264,6 @@ in
     };
     wmClass = "jetbrains-idea-ce";
     update-channel = "IDEA_Release";
-  };
-
-  idea14-ultimate = buildIdea rec {
-    name = "idea-ultimate-${version}";
-    version = "14.1.7";
-    description = "Integrated Development Environment (IDE) by Jetbrains, requires paid license";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/idea/ideaIU-${version}.tar.gz";
-      sha256 = "1hhga1i2zbsipgq283gn19kv9n94inhr1bxh2yx19gz7yr4r49d2";
-    };
-    wmClass = "jetbrains-idea";
-    update-channel = "IDEA14.1";
-  };
-
-  idea15-ultimate = buildIdea rec {
-    name = "idea-ultimate-${version}";
-    version = "15.0.6";
-    description = "Integrated Development Environment (IDE) by Jetbrains, requires paid license";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/idea/ideaIU-${version}.tar.gz";
-      sha256 = "012aap2qn0jx4x34bdv9ivrsr86vvf683srb5vpj27hc4l6rw6ll";
-    };
-    wmClass = "jetbrains-idea";
-    update-channel = null;
   };
 
   idea-ultimate = buildIdea rec {
@@ -329,19 +290,6 @@ in
     };
     wmClass = "jetbrains-phpstorm";
     update-channel = "PS2017.2";
-  };
-
-  phpstorm10 = buildPhpStorm rec {
-    name = "phpstorm-${version}";
-    version = "10.0.4";
-    description = "Professional IDE for Web and PHP developers";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/webide/PhpStorm-${version}.tar.gz";
-      sha256 = "0fi042zvjpg5pn2mnhj3bbrdkl1b9vmhpf2l6ca4nr0rhjjv7dsm";
-    };
-    wmClass = "jetbrains-phpstorm";
-    update-channel = "WI10";
   };
 
   pycharm-community = buildPycharm rec {
@@ -396,32 +344,6 @@ in
     update-channel = "rm2017.1";
   };
 
-  ruby-mine7 = buildRubyMine rec {
-    name = "ruby-mine-${version}";
-    version = "7.1.5";
-    description = "The Most Intelligent Ruby and Rails IDE";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/ruby/RubyMine-${version}.tar.gz";
-      sha256 = "04fcxj1xlap9mxmwf051s926p2darlj5kwl4lms2gy5d8b2lhd5l";
-    };
-    wmClass = "jetbrains-rubymine";
-    update-channel = null;
-  };
-
-  ruby-mine8 = buildRubyMine rec {
-    name = "ruby-mine-${version}";
-    version = "8.0.4";
-    description = "The Most Intelligent Ruby and Rails IDE";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/ruby/RubyMine-${version}.tar.gz";
-      sha256 = "0hipxib7377232w1jbf8h98bmh0djkllsrq3lq0w3fdxqglma43a";
-    };
-    wmClass = "jetbrains-rubymine";
-    update-channel = null;
-  };
-
   webstorm = buildWebStorm rec {
     name = "webstorm-${version}";
     version = "2017.2.2"; /* updated by script */
@@ -435,29 +357,4 @@ in
     update-channel = "WS_Release";
   };
 
-  webstorm10 = buildWebStorm rec {
-    name = "webstorm-${version}";
-    version = "10.0.5";
-    description = "Professional IDE for Web and JavaScript development";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/webstorm/WebStorm-${version}.tar.gz";
-      sha256 = "0a5s6f99wyql5pgjl94pf4ljdbviik3b8dbr1s6b7c6jn1gk62ic";
-    };
-    wmClass = "jetbrains-webstorm";
-    update-channel = null;
-  };
-
-  webstorm11 = buildWebStorm rec {
-    name = "webstorm-${version}";
-    version = "11.0.4";
-    description = "Professional IDE for Web and JavaScript development";
-    license = stdenv.lib.licenses.unfree;
-    src = fetchurl {
-      url = "https://download.jetbrains.com/webstorm/WebStorm-${version}.tar.gz";
-      sha256 = "17agyqdyz6naxyx6p0y240ar93gja0ypw01nm2qmfzvh7ch03r24";
-    };
-    wmClass = "jetbrains-webstorm";
-    update-channel = null;
-  };
 }
