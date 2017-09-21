@@ -19330,6 +19330,116 @@ with pkgs;
 
   openfst = callPackage ../development/libraries/openfst {};
 
+  urdfdom = callPackage ../development/libraries/urdfdom { };
+
+  urdfdom-headers = callPackage ../development/libraries/urdfdom/urdfdom-headers.nix { };
+
+  console-bridge = callPackage ../development/libraries/console-bridge { };
+
+  collada-dom = callPackage ../development/libraries/collada-dom { };
+
+  mkRosPackage = callPackage ../build-support/ros { };
+
+  catkin = callPackage ../development/ros-modules/catkin { };
+
+  cmake_modules = callPackage ../development/ros-modules/cmake_modules { };
+
+  xmlrpcpp = callPackage ../development/ros-modules/xmlrpcpp { };
+
+  genmsg = callPackage ../development/ros-modules/genmsg { };
+
+  gencpp = callPackage ../development/ros-modules/gencpp { };
+
+  geneus = callPackage ../development/ros-modules/geneus { };
+
+  genlisp = callPackage ../development/ros-modules/genlisp { };
+
+  gennodejs = callPackage ../development/ros-modules/gennodejs { };
+
+  genpy = callPackage ../development/ros-modules/genpy { };
+
+  message_generation = callPackage ../development/ros-modules/message_generation { };
+
+  message_runtime = callPackage ../development/ros-modules/message_runtime { };
+
+  message_filters = callPackage ../development/ros-modules/message_filters { };
+
+  std_srvs = callPackage ../development/ros-modules/std_srvs { };
+
+  std_msgs = callPackage ../development/ros-modules/std_msgs { };
+
+  rosgraph_msgs = callPackage ../development/ros-modules/rosgraph_msgs { };
+
+  cpp_common = callPackage ../development/ros-modules/cpp_common { };
+
+  roscpp_serialization = callPackage ../development/ros-modules/roscpp_serialization { };
+
+  roscpp_traits = callPackage ../development/ros-modules/roscpp_traits { };
+
+  roscpp = callPackage ../development/ros-modules/roscpp { };
+
+  rospy = callPackage ../development/ros-modules/rospy { };
+
+  roslisp = callPackage ../development/ros-modules/roslisp { };
+
+  rostime = callPackage ../development/ros-modules/rostime { };
+
+  roslib = callPackage ../development/ros-modules/roslib { };
+
+  rospack = callPackage ../development/ros-modules/rospack { };
+
+  rosunit = callPackage ../development/ros-modules/rosunit { };
+
+  rosbuild = callPackage ../development/ros-modules/rosbuild { };
+
+  rosconsole = callPackage ../development/ros-modules/rosconsole { };
+
+  roslang = callPackage ../development/ros-modules/roslang { };
+
+  rosmake = callPackage ../development/ros-modules/rosmake { };
+
+  roscreate = callPackage ../development/ros-modules/roscreate { };
+
+  rosclean = callPackage ../development/ros-modules/rosclean { };
+
+  rosboost_cfg = callPackage ../development/ros-modules/rosboost_cfg { };
+
+  rosgraph = callPackage ../development/ros-modules/rosgraph { };
+
+  roslz4 = callPackage ../development/ros-modules/roslz4 { };
+
+  rosmaster = callPackage ../development/ros-modules/rosmaster { };
+
+  rosbash = callPackage ../development/ros-modules/rosbash { };
+
+  rosbag = callPackage ../development/ros-modules/rosbag { };
+
+  rosbag_storage = callPackage ../development/ros-modules/rosbag/storage.nix { };
+
+  roslaunch = callPackage ../development/ros-modules/roslaunch { };
+
+  rosnode = callPackage ../development/ros-modules/rosnode { };
+
+  rosmsg = callPackage ../development/ros-modules/rosmsg { };
+
+  rosout = callPackage ../development/ros-modules/rosout { };
+
+  rosparam = callPackage ../development/ros-modules/rosparam { };
+
+  rosservice= callPackage ../development/ros-modules/rosservice { };
+
+  rostest = callPackage ../development/ros-modules/rostest { };
+
+  rostopic = callPackage ../development/ros-modules/rostopic { };
+
+  roswtf = callPackage ../development/ros-modules/roswtf { };
+
+  topic_tools = callPackage ../development/ros-modules/topic_tools { };
+
+  ros_comm = callPackage ../development/ros-modules/ros_comm { };
+
+  ros = callPackage ../development/ros-modules/ros { };
+
   # `recurseIntoAttrs` for sake of hydra, not nix-env
   tests = recurseIntoAttrs {
     cc-wrapper = callPackage ../test/cc-wrapper { };
