@@ -19,6 +19,6 @@ buildPythonPackage rec {
   meta = with stdenv.lib; {
     homepage = https://github.com/catkin/catkin_tools;
     description = "The catkin Command-Line Interface (CLI) tool is the single point of entry for most of the functionality provided by this package.";
-    license = licenses.apache2;
+    license = licenses.asl20;
   }; 
 }

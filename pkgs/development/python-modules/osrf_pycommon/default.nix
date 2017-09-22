@@ -19,6 +19,6 @@ buildPythonPackage rec {
   meta = with stdenv.lib; {
     homepage = http://osrf-pycommon.readthedocs.io;
     description = "Commonly needed Python modules, used by Python software developed at OSRF.";
-    license = licenses.apache2;
+    license = licenses.asl20;
   }; 
 }
