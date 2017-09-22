@@ -19471,6 +19471,8 @@ with pkgs;
 
   ros = callPackage ../development/ros-modules/ros { };
 
+  parity = callPackage ../applications/altcoins/parity { };
+
   z21 = callPackage ../development/libraries/z21 { };
 
   railway-market-switch = callPackage ../applications/science/robotics/aira/railway-market-switch { };
