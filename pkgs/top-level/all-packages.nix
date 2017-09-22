@@ -19471,6 +19471,10 @@ with pkgs;
 
   ros = callPackage ../development/ros-modules/ros { };
 
+  z21 = callPackage ../development/libraries/z21 { };
+
+  railway-market-switch = callPackage ../applications/science/robotics/aira/railway-market-switch { };
+
   # `recurseIntoAttrs` for sake of hydra, not nix-env
   tests = recurseIntoAttrs {
     cc-wrapper = callPackage ../test/cc-wrapper { };
