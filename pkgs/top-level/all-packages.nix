@@ -19367,8 +19367,6 @@ with pkgs;
 
   console-bridge = callPackage ../development/libraries/console-bridge { };
 
-  collada-dom = callPackage ../development/libraries/collada-dom { };
-
   mkRosPackage = callPackage ../build-support/ros { };
 
   catkin = callPackage ../development/ros-modules/catkin { };
