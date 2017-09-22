@@ -137,6 +137,8 @@
   ./service-managers/trivial.nix
   ./services/admin/salt/master.nix
   ./services/admin/salt/minion.nix
+  ./services/aira/parity.nix
+  ./services/aira/railway-game.nix
   ./services/amqp/activemq/default.nix
   ./services/amqp/rabbitmq.nix
   ./services/audio/alsa.nix
