@@ -54,7 +54,7 @@ in stdenv.mkDerivation (args // {
 
     cat <<EOF > deps/config
     [registry]
-    index = "file:///dev/null"
+    index = "file://$rustRegistry"
     EOF
 
     export CARGO_HOME="$(realpath deps)"
@@ -62,19 +62,20 @@ in stdenv.mkDerivation (args // {
     export SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt
 
     # Let's find out which $indexHash cargo uses for file:///dev/null
-    (cd $sourceRoot && cargo fetch &>/dev/null) || true
+    #(cd $sourceRoot && cargo fetch &>/dev/null ) || true
     cd deps
-    indexHash="$(basename $(echo registry/index/*))"
+    #indexHash="$(basename $(echo registry/index/*))"
 
-    echo "Using indexHash '$indexHash'"
+    #echo "Using indexHash '$indexHash'"
 
-    rm -rf -- "registry/cache/$indexHash" \
-              "registry/index/$indexHash"
+    #rm -rf -- "registry/cache/$indexHash" \
+    #          "registry/index/$indexHash"
 
-    mv registry/cache/HASH "registry/cache/$indexHash"
+    #mv registry/cache/HASH "registry/cache/$indexHash"
 
     echo "Using rust registry from $rustRegistry"
-    ln -s "$rustRegistry" "registry/index/$indexHash"
+    #cp -a "$rustRegistry" "registry/index/$indexHash"
+    #chmod +w "registry/index/$indexHash/" -R
 
     # Retrieved the Cargo.lock file which we saved during the fetch
     cd ..

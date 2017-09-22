@@ -47,7 +47,7 @@ stdenv.mkDerivation {
   configureFlags = configureFlags
                 ++ [ "--enable-local-rust" "--local-rust-root=${rustPlatform.rust.rustc}" "--enable-rpath" ]
                 ++ [ "--enable-vendor" "--disable-locked-deps" ]
-                ++ [ "--enable-llvm-link-shared" ]
+                ++ optional (!forceBundledLLVM) "--enable-llvm-link-shared"
                 # ++ [ "--jemalloc-root=${jemalloc}/lib"
                 ++ [ "--default-linker=${stdenv.cc}/bin/cc" "--default-ar=${binutils.out}/bin/ar" ]
                 ++ optional (stdenv.cc.cc ? isClang) "--enable-clang"
@@ -112,6 +112,9 @@ stdenv.mkDerivation {
   # rustc unfortunately need cmake for compiling llvm-rt but doesn't
   # use it for the normal build. This disables cmake in Nix.
   dontUseCmakeConfigure = true;
+
+  # rustc check vendor sources and don't permit changes
+  dontFixLibtool = true;
 
   # ps is needed for one of the test cases
   nativeBuildInputs =

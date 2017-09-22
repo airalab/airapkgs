@@ -149,7 +149,7 @@ EOF
             cd "$out/git/checkouts/$name/$branch"
             rev="$(git rev-parse HEAD)"
             revs="$rev $revs"
-        done < <(find . -type d -name .git -print)
+        done < <(find . -maxdepth 2 -type d -name .git -print)
 
         echo "List of revs to keep for git db $name: $revs"
 

@@ -39,6 +39,14 @@ index 0e7c5b0671..d42fd26267 100644
      #[test]
      fn ttl() {
          let ttl = 100;
+@@ -1528,6 +1528,7 @@
+         })
+     }
+
++    #[cfg_attr(target_os = "linux", ignore)]
+     #[test]
+     fn connect_timeout_unroutable() {
+         // this IP is unroutable, so connections should always time out.
 -- 
 2.11.0
 
