@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "ros";
     repo = "urdfdom_headers";
-    rev = "${version}";
+    rev = "0.4.1";
     sha256 = "13qp5bbsjmgyq0r008x6arrv5npk4g2y2vgz4xw2jyf3b81cx7gk";
   };
 
