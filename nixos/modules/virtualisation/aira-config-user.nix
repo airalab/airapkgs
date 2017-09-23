@@ -5,7 +5,7 @@ with lib;
   imports = [ ../profiles/minimal.nix ];
 
   boot.kernelParams = [ "panic=1" "boot.panic_on_fail" ];
-  boot.supportedFilesystems = [ "btrfs" ];
+  boot.supportedFilesystems = [ "ext4" ];
 
   # Generate a GRUB menu.
   boot.loader = {
@@ -18,9 +18,20 @@ with lib;
 
   services = {
     openssh.enable = true;
+
     parity.enable = true;
+    parity.chain = "kovan";
+
     railway-game.enable = true;
   };
 
   networking.hostName = mkDefault "aira";
+
+  users.extraUsers.user =
+    { isNormalUser = true;
+      description = "Demo user account";
+      extraGroups = [ "wheel" ];
+      password = "user";
+      uid = 1000;
+    };
 }

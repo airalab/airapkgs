@@ -19,6 +19,6 @@ buildPythonApplication rec {
   meta = with stdenv.lib; {
     homepage = http://www.alcyone.com/software/empy/;
     description = "A powerful and robust templating system for Python.";
-    license = licenses.lgpl;
+    license = licenses.lgpl3;
   }; 
 }

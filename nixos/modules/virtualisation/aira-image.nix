@@ -2,15 +2,14 @@
 
 with lib;
 let
-  diskSize = 5120;
-  fsType = "btrfs";
+  diskSize = 10000;
 in
 {
   system.build.airaImage = import ../../lib/make-disk-image.nix {
     name = "aira-image";
     configFile = ./aira-config-user.nix;
     format = "raw";
-    inherit diskSize fsType;
+    inherit diskSize;
     inherit config lib pkgs;
   };
 

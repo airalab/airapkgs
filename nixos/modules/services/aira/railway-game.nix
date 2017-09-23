@@ -52,11 +52,13 @@ in {
         MARKET_LEFT_ADDRESS = cfg.market.left;
       };
       serviceConfig = {
-        ExecStart = "${pkgs.railway-market-switch}/bin/market-switch";
+        ExecStart = "${pkgs.railway-market-switch}/bin/switcher";
         ExecStop = "${pkgs.coreutils}/bin/kill -INT $MAINPID";
         User = "${cfg.user}";
         Group = "${cfg.group}";
-        Restart = "always";
+        Restart = "on-failure";
+        RestartSec = "30s";
+        StartLimitBurst = "60";
       };
     };
 

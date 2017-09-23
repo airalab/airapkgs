@@ -30,12 +30,6 @@ in {
         description = "User account under which service runs.";
       };
 
-      group = mkOption {
-        type = types.str;
-        default = "parity";
-        description = "Group account under which service runs.";
-      };
-
       extraOptions = mkOption {
         type = types.listOf types.str;
         default = [];
@@ -59,18 +53,16 @@ in {
           ${concatStringsSep " " cfg.extraOptions}
         '';
         ExecStop = "${pkgs.coreutils}/bin/kill -INT $MAINPID";
+        Restart = "on-failure";
         User = cfg.user;
-        Group = cfg.group;
-        Restart = "always";
       };
     };
 
     users.extraUsers = singleton
       { name = cfg.user;
-        group = cfg.group;
+        home = "/var/lib/parity";
+        createHome = true;
+        isNormalUser = true;
       };
-
-    users.extraGroups = singleton
-      { name = cfg.group; };
   };
 }
