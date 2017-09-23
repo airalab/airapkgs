@@ -19,6 +19,6 @@ buildPythonApplication rec {
   meta = with stdenv.lib; {
     homepage = http://www.ros.org/wiki/bloom;
     description = "Bloom is a release automation tool.";
-    license = licenses.lgpl;
+    license = licenses.lgpl3;
   }; 
 }
