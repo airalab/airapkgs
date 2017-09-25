@@ -11,5 +11,10 @@ with import ../pkgs/top-level/release-lib.nix { inherit supportedSystems scrubJo
 
 rec {
   parity = pkgs.parity;
+
   railway-market-switch = pkgs.railway-market-switch;
+
+  raw-image = with import ../lib; hydraJob ((import ../nixos {
+     configuration = ../nixos/modules/virtualisation/aira-image.nix;
+  }).config.system.build.airaImage);
 }

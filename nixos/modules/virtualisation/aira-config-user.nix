@@ -5,7 +5,6 @@ with lib;
   imports = [ ../profiles/minimal.nix ];
 
   boot.kernelParams = [ "panic=1" "boot.panic_on_fail" ];
-  boot.supportedFilesystems = [ "ext4" ];
 
   # Generate a GRUB menu.
   boot.loader = {

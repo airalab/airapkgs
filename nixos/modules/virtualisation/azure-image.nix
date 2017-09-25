@@ -2,7 +2,7 @@
 
 with lib;
 let
-  diskSize = 30720;
+  diskSize = 5000;
 in
 {
   system.build.azureImage = import ../../lib/make-disk-image.nix {
