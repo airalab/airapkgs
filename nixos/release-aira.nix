@@ -27,18 +27,15 @@ let
 in rec {
 
   nixos = {
-    inherit (nixos') channel manual iso_minimal dummy;
+    inherit (nixos') channel iso_minimal dummy;
     tests = {
       inherit (nixos'.tests)
-        firewall
         ipv6
         login
-        misc
         openssh
         simple;
       installer = {
         inherit (nixos'.tests.installer)
-          separateBoot
           simple;
       };
     };
@@ -47,16 +44,9 @@ in rec {
   nixpkgs = {
     inherit (nixpkgs')
       railway-market-switch
+      ros_comm
       parity
-      gettext
-      cmake
-      linux
-      openssh
-      python
-      stdenv
-      tarball
-      git
-      vim;
+      tarball;
   };
 
   tested = lib.hydraJob (pkgs.releaseTools.aggregate {
