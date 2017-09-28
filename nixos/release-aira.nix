@@ -27,12 +27,9 @@ let
 in rec {
 
   nixos = {
-    inherit (nixos') channel iso_minimal dummy;
+    inherit (nixos') channel iso_minimal;
     tests = {
       inherit (nixos'.tests)
-        ipv6
-        login
-        openssh
         simple;
       installer = {
         inherit (nixos'.tests.installer)
@@ -43,9 +40,16 @@ in rec {
 
   nixpkgs = {
     inherit (nixpkgs')
+      # AIRA modules
       railway-market-switch
+
+      # 3rd-party
       ros_comm
       parity
+      rustc
+      cargo
+
+      # Nixpkgs tarball
       tarball;
   };
 
@@ -58,6 +62,8 @@ in rec {
     constituents =
       let all = x: map (system: x.${system}) supportedSystems; in
       [ nixpkgs.tarball
+        (all nixpkgs.railway-market-switch)
+        (all nixpkgs.parity)
       ]
       ++ lib.collect lib.isDerivation nixos;
   });
