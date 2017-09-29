@@ -6,6 +6,8 @@
 , supportedSystems ? [ "x86_64-linux" ] # no i686-linux
 }:
 
+with import ../lib;
+
 let
 
   nixpkgsSrc = nixpkgs; # urgh
@@ -24,6 +26,18 @@ let
     nixpkgs = nixpkgsSrc;
   }) [ "unstable" ];
 
+  forAllSystems = genAttrs supportedSystems;
+
+  makeImage =
+    { module, maintainers ? ["akru"], system }:
+
+    with import nixpkgs { inherit system; };
+
+    hydraJob ((import lib/eval-config.nix {
+      inherit system;
+      modules = [ module ];
+    }).config.system.build.airaImage);
+
 in rec {
 
   nixos = {
@@ -36,6 +50,10 @@ in rec {
           simple;
       };
     };
+    image = forAllSystems (system: makeImage {
+      module = ./modules/virtualisation/aira-image.nix;
+      inherit system;
+    });
   };
 
   nixpkgs = {
