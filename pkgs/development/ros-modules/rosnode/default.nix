@@ -8,7 +8,7 @@ mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/lunar/rosnode/1.13.2-0";
-    sha256 = "0a5vb4bngh9nw2sb3qi5q5hw1633qf88p0dmyzq3q4gqfb3f7mzw";
+    sha256 = "11bj68g7hxjg5fw8bjpyyxk49p3frfk9qb6658nqkxnwpz78jbdz";
   };
 
   propagatedBuildInputs = with pkgs; [ catkin rosgraph rostopic ];
