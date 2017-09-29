@@ -33,4 +33,9 @@ with lib;
       password = "user";
       uid = 1000;
     };
+
+  nix = {
+    binaryCaches = [ https://cache.nixos.org https://hydra.aira.life ];
+    binaryCachePublicKeys = [ "hydra.aira.life-1:StgkxSYBh18tccd4KUVmxHQZEUF7ad8m10Iw4jNt5ak=" ];
+  };
 }
