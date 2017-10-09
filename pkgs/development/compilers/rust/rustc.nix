@@ -10,6 +10,7 @@
 , targetPatches
 , targetToolchains
 , doCheck ? true
+, broken ? false
 , buildPlatform, hostPlatform
 } @ args:
 
@@ -157,5 +158,6 @@ stdenv.mkDerivation {
     maintainers = with maintainers; [ madjar cstrahan wizeman globin havvy wkennington ];
     license = [ licenses.mit licenses.asl20 ];
     platforms = platforms.linux ++ platforms.darwin;
+    broken = broken;
   };
 }
