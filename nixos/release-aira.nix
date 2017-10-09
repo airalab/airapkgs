@@ -60,6 +60,7 @@ in rec {
     inherit (nixpkgs')
       # AIRA modules
       railway-market-switch
+      aira-proto
 
       # 3rd-party
       ros_comm
