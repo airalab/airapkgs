@@ -19545,7 +19545,11 @@ with pkgs;
 
   z21 = callPackage ../development/libraries/z21 { };
 
+  hs-multihash = callPackage ../development/libraries/multihash { };
+
   railway-market-switch = callPackage ../applications/science/robotics/aira/railway-market-switch { };
+
+  aira-proto = callPackage ../applications/science/robotics/aira/aira-proto { };
 
   # `recurseIntoAttrs` for sake of hydra, not nix-env
   tests = recurseIntoAttrs {
