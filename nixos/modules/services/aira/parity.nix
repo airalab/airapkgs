@@ -24,6 +24,20 @@ in {
         description = "User blockchain network.";
       };
 
+      autoSign = {
+        enable = mkOption {
+          type = types.bool;
+          default = true;
+          description = "Create default account for sending transactions.";
+        };
+
+        passwordFile = mkOption {
+          type = types.str;
+          default = "/var/lib/parity/psk";
+          description = "File to store account password file.";
+        };
+      };
+
       user = mkOption {
         type = types.str;
         default = "parity";
@@ -48,8 +62,14 @@ in {
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         ExecStart = with lib.strings; ''
+          export ACCOUNT=$(${pkgs.parity}/bin/parity account list | head -n 1)
+          if [ $ACCOUNT -eq "" ]; then
+            ${optionalString cfg.autoSign.enable "${pkgs.parity}/bin/parity account new --password ${cfg.autoSign.passwordFile}"}
+            export ACCOUNT=$(${pkgs.parity}/bin/parity account list | head -n 1)
+          fi
           ${pkgs.parity}/bin/parity --chain ${cfg.chain} \
           ${optionalString cfg.warp "--warp"} \
+          ${optionalString cfg.autoSign.enable "--no-ui --unlock $ACCOUNT --password ${cfg.autoSign.passwordFile}"} \
           ${concatStringsSep " " cfg.extraOptions}
         '';
         ExecStop = "${pkgs.coreutils}/bin/kill -INT $MAINPID";
