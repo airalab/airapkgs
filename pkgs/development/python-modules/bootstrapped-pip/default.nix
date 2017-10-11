@@ -14,6 +14,14 @@ let
     sha256 = "4d54c0bfee283e78609169213f9c075827d5837086f58b588b417b093c23464b";
   };
 
+  # TODO: Shouldn't be necessary anymore for pip > 9.0.1!
+  # https://github.com/NixOS/nixpkgs/issues/26392
+  # https://github.com/pypa/setuptools/issues/885
+  pkg_resources = fetchurl {
+    url = "https://raw.githubusercontent.com/pypa/setuptools/v36.0.1/pkg_resources/__init__.py";
+    sha256 = "1wdnq3mammk75mifkdmmjx7yhnpydvnvi804na8ym4mj934l2jkv";
+  };
+
 in stdenv.mkDerivation rec {
   pname = "pip";
   version = "9.0.1";
