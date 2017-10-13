@@ -19,8 +19,8 @@ mkDerivation {
   src = fetchFromGitHub {
     owner = "airalab";
     repo = "aira-proto";
-    rev = "7a5bfe092f69a156b8b2f52049b3d941ee764c56";
-    sha256 = "1fq787xfj98aqz6y710s73nc2ibjacm83slsn98pirg9jzq4gnbm";
+    rev = "bbdeb8c0440452de7cf4334f7bc0b98560d7ba9e";
+    sha256 = "0kvsk0anrbn67vm0nvna33bsbbziq73r84bf7446k2v2clq8brkm";
     fetchSubmodules = true;
   };
   
