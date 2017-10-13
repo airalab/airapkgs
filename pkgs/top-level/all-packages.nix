@@ -19549,6 +19549,8 @@ with pkgs;
 
   railway-market-switch = callPackage ../applications/science/robotics/aira/railway-market-switch { };
 
+  github-ipfs = callPackage ../applications/science/robotics/aira/github-ipfs { };
+
   aira-proto = callPackage ../applications/science/robotics/aira/aira-proto { };
 
   # `recurseIntoAttrs` for sake of hydra, not nix-env
