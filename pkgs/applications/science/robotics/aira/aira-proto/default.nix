@@ -11,7 +11,7 @@ mkDerivation {
 
   libraryHaskellDepends =
   [ base transformers bytestring hs-multihash logging memory shelly
-    async text web3 mtl ];
+    optparse-generic async text web3 mtl ];
 
   executableHaskellDepends =
   [ base web3 ];
@@ -19,8 +19,8 @@ mkDerivation {
   src = fetchFromGitHub {
     owner = "airalab";
     repo = "aira-proto";
-    rev = "b2ecb24f769e99fccc67d906d2b208b636b3b12c";
-    sha256 = "08a32n4psx1fm30r4lypalv4vqzs94f9pfaycy93myb02sj28v7x";
+    rev = "7a5bfe092f69a156b8b2f52049b3d941ee764c56";
+    sha256 = "1fq787xfj98aqz6y710s73nc2ibjacm83slsn98pirg9jzq4gnbm";
     fetchSubmodules = true;
   };
   
