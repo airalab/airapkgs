@@ -9,7 +9,7 @@ mkDerivation {
   isLibrary = false;
   isExecutable = true;
 
-  libraryHaskellDepends = with pkgs;
+  executableHaskellDepends = with pkgs;
   [ base servant-github-webhook servant-server bytestring shelly aeson text warp ];
 
   src = fetchFromGitHub {
