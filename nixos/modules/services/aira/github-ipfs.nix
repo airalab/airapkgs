@@ -18,7 +18,7 @@ in {
 
       path = mkOption {
         type = types.str;
-        default = "/registry";
+        default = "/var/lib/github-ipfs/registry";
         description = "Absolute registry path in container";
       };
 
@@ -44,6 +44,7 @@ in {
         ExecStop = "${pkgs.coreutils}/bin/kill -INT $MAINPID";
         Restart = "on-failure";
       };
+      networking.firewall.allowedTCPPorts = cfg.port;
     };
   };
 }
