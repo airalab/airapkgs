@@ -11,14 +11,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "message_filters";
-  version = "1.13.6";
+  version = "1.14.4";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0j7lzjj0dsrddn7k4v07c170zh27w1m1f9bkn3zhd2dzin7lzwp5";
+    sha256 = "1i8m0961n51cjvp3vwrjimmll5nqv23xpdlbdllabmgmk18g6yym";
   };
 
   propagatedBuildInputs = [ rosconsole rostest roscpp rosunit xmlrpcpp ];

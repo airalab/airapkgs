@@ -16,14 +16,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "topic_tools";
-  version = "1.13.6";
+  version = "1.14.4";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "06isj0dbvhdkd7np2m0zjv23l5hqyld4qmackbixll3ixbksvmzv";
+    sha256 = "139aj7g99s9bisd6sqakfymmkaf7nyx8k9hh8bsjc1ayn3127i00";
   };
 
   propagatedBuildInputs =
