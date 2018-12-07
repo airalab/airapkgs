@@ -23163,6 +23163,8 @@ with pkgs;
 
   robonomics_comm = callPackage ../applications/science/robotics/aira/robonomics_comm { };
 
+  robonomics_comm-gen4 = callPackage ../applications/science/robotics/aira/robonomics_comm-gen4 { };
+
   robonomics_contracts = callPackage ../applications/science/robotics/aira/robonomics_contracts { };
 
   robonomics_game_transport = callPackage ../applications/science/robotics/aira/robonomics_game/transport.nix { };

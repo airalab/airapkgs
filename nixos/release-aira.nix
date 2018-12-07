@@ -74,6 +74,7 @@ in rec {
       aira-graph
       robonomics_dev
       robonomics_comm
+      robonomics_comm-gen4
       robonomics-tools;
   };
 
@@ -89,6 +90,7 @@ in rec {
         (all nixpkgs.aira-graph)
         (all nixpkgs.robonomics_dev)
         (all nixpkgs.robonomics_comm)
+        (all nixpkgs.robonomics_comm-gen4)
         (all nixpkgs.robonomics-tools)
         (all nixpkgs.ipfs)
         (all nixpkgs.parity)
