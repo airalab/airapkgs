@@ -47,6 +47,12 @@ in {
         description = "Web3 http provider address";
       };
 
+      web3_ws_provider = mkOption {
+        type = types.str;
+        default = "wss://mainnet.infura.io/ws";
+        description = "Web3 websocket provider address";
+      };
+
     };
   };
 
@@ -70,7 +76,8 @@ in {
               ens_contract:="${cfg.ens}" \
               keyfile:="${cfg.keyfile}" \
               keyfile_password_file:="${cfg.keyfile_password_file}" \
-              web3_http_provider:="${cfg.web3_http_provider}"
+              web3_http_provider:="${cfg.web3_http_provider}" \
+              web3_ws_provider:="${cfg.web3_ws_provider}"
       '';
 
       serviceConfig = {
