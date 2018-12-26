@@ -1,0 +1,10 @@
+--- a/ens/constants.py	1970-01-01 03:00:01.000000000 +0300
++++ b/ens/constants.py	2018-12-26 22:32:47.907025325 +0300
+@@ -9,6 +9,6 @@
+ 
+ MIN_ETH_LABEL_LENGTH = 7
+ 
+-RECOGNIZED_TLDS = ['eth', 'reverse', 'test']
++RECOGNIZED_TLDS = ['eth', 'reverse', 'test', 'sid']
+ 
+ REVERSE_REGISTRAR_DOMAIN = 'addr.reverse'

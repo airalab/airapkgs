@@ -22,6 +22,8 @@ in buildPythonPackage rec {
     sha256 = "0yw018n82g6vvm6djzni5yl5q51ns8kji7971rp5rzlgrcqrhq19";
   };
 
+  patches = [ ./append-sid-tld.patch ];
+
   propagatedBuildInputs = [ lru-dict requests eth-abi eth-account websockets6 ];
 
   disabled = pythonOlder "3.3";
