@@ -125,10 +125,12 @@ in {
           web3_http_provider = "http://127.0.0.1:10545";
           web3_ws_provider = "ws://127.0.0.1:10546";
           lighthouse = "test.lighthouse.4.robonomics.eth";
+          factory = "factory.4.robonomics.eth";
           ens = "0x5F3DBa5e45909D1bf126aA0aF0601B1a369dbFD7";
           keyfile = "/etc/keys/LiabilityTest/user.keyfile";
           keyfile_password_file = "/etc/keys/user.psk";
-          enable_aira_graph = false;
+          graph_topic = "graph.4.robonomics.eth";
+          graph = false;
         };
 
         services.parity = {
