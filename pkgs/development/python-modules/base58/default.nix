@@ -1,17 +1,15 @@
-{ stdenv, fetchFromGitHub, buildPythonPackage, pytest, pyhamcrest }:
+{ stdenv, fetchPypi, buildPythonPackage, pytest, pyhamcrest }:
 
 buildPythonPackage rec {
   pname = "base58";
-  version = "1.0.2";
+  version = "1.0.3";
 
-  src = fetchFromGitHub {
-    owner = "keis";
-    repo = "base58";
-    rev = "v${version}";
-    sha256 = "0lagnb7vc1z4x9hxvx8zd41c8pc2h50n7gqs4bx1gdz3g4z8mgc3";
+  src = fetchPypi {
+    inherit pname version;
+    sha256 = "9a793c599979c497800eb414c852b80866f28daaed5494703fc129592cc83e60";
   };
 
-  buildInputs = [ pytest pyhamcrest ];
+  checkInputs = [ pytest pyhamcrest ];
   checkPhase = ''
     pytest
   '';

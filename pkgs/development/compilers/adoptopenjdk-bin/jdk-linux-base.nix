@@ -42,15 +42,19 @@ let
     xorg.libXrender
     stdenv.cc.cc
   ]);
+
+  cpuName = stdenv.hostPlatform.parsed.cpu.name;
 in
 
 let result = stdenv.mkDerivation rec {
   name = if sourcePerArch.packageType == "jdk"
-    then "adoptopenjdk-${sourcePerArch.vmType}-bin-${sourcePerArch.version}"
-    else "adoptopenjdk-${sourcePerArch.packageType}-${sourcePerArch.vmType}-bin-${sourcePerArch.version}";
+    then "adoptopenjdk-${sourcePerArch.vmType}-bin-${version}"
+    else "adoptopenjdk-${sourcePerArch.packageType}-${sourcePerArch.vmType}-bin-${version}";
+
+  version = sourcePerArch.${cpuName}.version or (throw "unsupported CPU ${cpuName}");
 
   src = fetchurl {
-    inherit (sourcePerArch.${stdenv.hostPlatform.parsed.cpu.name}) url sha256;
+    inherit (sourcePerArch.${cpuName}) url sha256;
   };
 
   nativeBuildInputs = [ file ];
@@ -60,14 +64,6 @@ let result = stdenv.mkDerivation rec {
 
   installPhase = ''
     cd ..
-
-    # Set PaX markings
-    exes=$(file $sourceRoot/bin/* 2> /dev/null | grep -E 'ELF.*(executable|shared object)' | sed -e 's/: .*$//')
-    for file in $exes; do
-      paxmark m "$file"
-      # On x86 for heap sizes over 700MB disable SEGMEXEC and PAGEEXEC as well.
-      ${stdenv.lib.optionalString stdenv.isi686 ''paxmark msp "$file"''}
-    done
 
     mv $sourceRoot $out
 

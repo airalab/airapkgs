@@ -7,6 +7,7 @@
 , flatpak
 , glibcLocales
 , gnome3
+, libgit2-glib
 , gobject-introspection
 , gspell
 , gtk-doc
@@ -26,18 +27,19 @@
 , sysprof
 , template-glib
 , vala
+, vte
 , webkitgtk
 , wrapGAppsHook
 }:
 let
-  version = "3.30.2";
+  version = "3.30.3";
   pname = "gnome-builder";
 in stdenv.mkDerivation {
   name = "${pname}-${version}";
 
   src = fetchurl {
     url = "mirror://gnome/sources/${pname}/${stdenv.lib.versions.majorMinor version}/${pname}-${version}.tar.xz";
-    sha256 = "05yax7iv9g831xvw9xdc01qc0l7qpmh6rfd692x8cbg76hljxdrr";
+    sha256 = "11h6apjyah91djf77m8xkl5rvdz7mwpp3bjc4yzzs9lm3pag764r";
   };
 
   nativeBuildInputs = [
@@ -61,9 +63,9 @@ in stdenv.mkDerivation {
     ctags
     flatpak
     gnome3.devhelp
-    gnome3.libgit2-glib
+    libgit2-glib
     gnome3.libpeas
-    gnome3.vte
+    vte
     gspell
     gtk3
     gtksourceview4

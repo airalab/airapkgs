@@ -8,11 +8,11 @@ assert pythonOlder "3.3" -> ipaddress != null;
 
 buildPythonPackage rec {
   pname = "Faker";
-  version = "0.9.3";
+  version = "1.0.2";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "8c6df7903c7b4a51f4ac273bc5fec79a249e3220c47b35d1ac1175b41982d772";
+    sha256 = "0v1pjzn9z20ckgv3kji7c8nwcsm7670z4i43ic9skjrdbcqylwfq";
   };
 
   buildInputs = [ pytestrunner ];
@@ -30,6 +30,7 @@ buildPythonPackage rec {
   ] ++ lib.optional (pythonOlder "3.3") ipaddress;
 
   postPatch = ''
+    find tests -type d -name "__pycache__" | xargs rm -r
     substituteInPlace setup.py --replace "pytest>=3.8.0,<3.9" "pytest"
   '';
 

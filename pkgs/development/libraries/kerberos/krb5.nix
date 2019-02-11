@@ -65,7 +65,7 @@ stdenv.mkDerivation rec {
 
   # not via outputBin, due to reference from libkrb5.so
   postInstall = ''
-    moveToOutput bin "$dev"
+    moveToOutput bin/krb5-config "$dev"
   '';
 
   enableParallelBuilding = true;
@@ -76,7 +76,6 @@ stdenv.mkDerivation rec {
     homepage = http://web.mit.edu/kerberos/;
     license = licenses.mit;
     platforms = platforms.unix ++ platforms.windows;
-    maintainers = with maintainers; [ wkennington ];
   };
 
   passthru.implementation = "krb5";

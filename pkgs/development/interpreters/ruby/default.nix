@@ -73,15 +73,12 @@ let
         # Have `configure' avoid `/usr/bin/nroff' in non-chroot builds.
         NROFF = if docSupport then "${groff}/bin/nroff" else null;
 
-        nativeBuildInputs =
-             ops useRailsExpress [ autoreconfHook bison ]
-          ++ ops (stdenv.buildPlatform != stdenv.hostPlatform) [
-               buildPackages.ruby
-             ];
+        nativeBuildInputs = [ autoreconfHook bison ]
+          ++ (op docSupport groff)
+          ++ op (stdenv.buildPlatform != stdenv.hostPlatform) buildPackages.ruby;
         buildInputs =
              (op fiddleSupport libffi)
           ++ (ops cursesSupport [ ncurses readline ])
-          ++ (op docSupport groff)
           ++ (op zlibSupport zlib)
           ++ (op opensslSupport openssl)
           ++ (op gdbmSupport gdbm)
@@ -149,7 +146,7 @@ let
         postInstall = ''
           # Update rubygems
           pushd rubygems
-          ${buildRuby} setup.rb
+          ${buildRuby} setup.rb --destdir $GEM_HOME
           popd
 
           # Remove unnecessary groff reference from runtime closure, since it's big
@@ -226,10 +223,10 @@ in {
   };
 
   ruby_2_6 = generic {
-    version = rubyVersion "2" "6" "0" "";
+    version = rubyVersion "2" "6" "1" "";
     sha256 = {
-      src = "0wn0gxlx6xhhqrm2caxp0h6cj4nw7knnv5gh27qqzj0i9a95phzk";
-      git = "0bwbl4hz18dd5aij2l4s6xy90dc17d03kk577gdl34l9mbd9m7mn";
+      src = "1f0w37jz2ryvlx260rw3s3wl0wg7dkzphb54lpvrqg90pfvly0hp";
+      git = "07gp7df1izw9rdbp9ciw4q5kq8icx3zd5w1xrhwsw0dfbsmmnsrj";
     };
   };
 }

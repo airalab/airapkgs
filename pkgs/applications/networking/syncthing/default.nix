@@ -3,24 +3,20 @@
 let
   common = { stname, target, postInstall ? "" }:
     buildGoPackage rec {
-      version = "0.14.54";
+      version = "1.0.0";
       name = "${stname}-${version}";
 
       src = fetchFromGitHub {
         owner  = "syncthing";
         repo   = "syncthing";
         rev    = "v${version}";
-        sha256 = "0l73ka71l6gxv46wmlyzj8zhfpfj3vf6nv6x3x0z25ymr3wa2fza";
+        sha256 = "1qkjnij9jw3d4pjkdr6npz5ps604qg6g36jnsng0k1r2qnrydnwh";
       };
 
       goPackagePath = "github.com/syncthing/syncthing";
 
       patches = [
         ./add-stcli-target.patch
-        (fetchpatch {
-          url = "https://github.com/syncthing/syncthing/commit/e7072feeb7669948c3e43f55d21aec15481c33ba.patch";
-          sha256 = "1pcybww2vdx45zhd1sd53v7fp40vfgkwqgy8flv7hxw2paq8hxd4";
-        })
       ];
       BUILD_USER="nix";
       BUILD_HOST="nix";
@@ -67,19 +63,19 @@ in {
       done
 
     '' + lib.optionalString (stdenv.isLinux) ''
-      mkdir -p $out/lib/systemd/{system,user}
+      mkdir -p $bin/lib/systemd/{system,user}
 
       substitute etc/linux-systemd/system/syncthing-resume.service \
-                 $out/lib/systemd/system/syncthing-resume.service \
+                 $bin/lib/systemd/system/syncthing-resume.service \
                  --replace /usr/bin/pkill ${procps}/bin/pkill
 
       substitute etc/linux-systemd/system/syncthing@.service \
-                 $out/lib/systemd/system/syncthing@.service \
-                 --replace /usr/bin/syncthing $out/bin/syncthing
+                 $bin/lib/systemd/system/syncthing@.service \
+                 --replace /usr/bin/syncthing $bin/bin/syncthing
 
       substitute etc/linux-systemd/user/syncthing.service \
-                 $out/lib/systemd/user/syncthing.service \
-                 --replace /usr/bin/syncthing $out/bin/syncthing
+                 $bin/lib/systemd/user/syncthing.service \
+                 --replace /usr/bin/syncthing $bin/bin/syncthing
     '';
   };
 
@@ -103,7 +99,7 @@ in {
 
       substitute cmd/strelaysrv/etc/linux-systemd/strelaysrv.service \
                  $out/lib/systemd/system/strelaysrv.service \
-                 --replace /usr/bin/strelaysrv $out/bin/strelaysrv
+                 --replace /usr/bin/strelaysrv $bin/bin/strelaysrv
     '';
   };
 }

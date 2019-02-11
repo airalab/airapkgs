@@ -1,7 +1,7 @@
 { stdenv
 
 # Build time
-, fetchurl, fetchpatch, pkgconfig, perl, texinfo, setupDebugInfoDirs
+, fetchurl, fetchpatch, pkgconfig, perl, texinfo, setupDebugInfoDirs, buildPackages
 
 # Run time
 , ncurses, readline, gmp, mpfr, expat, zlib, dejagnu
@@ -13,7 +13,7 @@
 
 let
   basename = "gdb-${version}";
-  version = "8.2";
+  version = "8.2.1";
 in
 
 assert pythonSupport -> python3 != null;
@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "mirror://gnu/gdb/${basename}.tar.xz";
-    sha256 = "0fbw6j4z7kmvywwgavn7w3knp860i5i9qnjffc5p52bwkji43963";
+    sha256 = "00i27xqawjv282a07i73lp1l02n0a3ywzhykma75qg500wll6sha";
   };
 
   patches = [
@@ -48,6 +48,8 @@ stdenv.mkDerivation rec {
     ++ stdenv.lib.optional doCheck dejagnu;
 
   propagatedNativeBuildInputs = [ setupDebugInfoDirs ];
+
+  depsBuildBuild = [ buildPackages.stdenv.cc ];
 
   enableParallelBuilding = true;
 

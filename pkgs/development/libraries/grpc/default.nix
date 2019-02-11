@@ -1,13 +1,13 @@
 { stdenv, fetchFromGitHub, cmake, zlib, c-ares, pkgconfig, openssl, protobuf, gflags }:
 
 stdenv.mkDerivation rec {
-  version = "1.17.0";
+  version = "1.18.0";
   name = "grpc-${version}";
   src = fetchFromGitHub {
     owner = "grpc";
     repo = "grpc";
     rev = "v${version}";
-    sha256 = "17y8lhkx22qahjk89fa0bh76q76mk9vwza59wbwcpzmy0yhl2k23";
+    sha256 = "0pf8q1z3qhlljlj6h7isvqvsxhh4612z780xcbv1h9lj7cdpr77m";
   };
   nativeBuildInputs = [ cmake pkgconfig ];
   buildInputs = [ zlib c-ares c-ares.cmake-config openssl protobuf gflags ];

@@ -1,5 +1,5 @@
 { stdenv, lib, runCommand, writeScriptBin, buildEnv
-, pythonPackages, perl, perlPackages
+, pythonPackages, perlPackages
 }:
 
 weechat:
@@ -10,7 +10,7 @@ let
   }:
 
   let
-    perlInterpreter = perl;
+    perlInterpreter = perlPackages.perl;
     availablePlugins = let
         simplePlugin = name: {pluginFile = "${weechat.${name}}/lib/weechat/plugins/${name}.so";};
       in rec {
@@ -29,7 +29,7 @@ let
           withPackages = pkgsFun: (perl // {
             extraEnv = ''
               ${perl.extraEnv}
-              export PERL5LIB=${lib.makeFullPerlPath (pkgsFun perlPackages)}
+              export PERL5LIB=${perlPackages.makeFullPerlPath (pkgsFun perlPackages)}
             '';
           });
         };
@@ -65,7 +65,7 @@ let
       ${lib.concatMapStringsSep "\n" (p: lib.optionalString (p ? extraEnv) p.extraEnv) plugins}
       exec ${weechat}/bin/${bin} "$@" --run-command ${lib.escapeShellArg init}
     '') // {
-      inherit (weechat) name meta;
+      inherit (weechat) name;
       unwrapped = weechat;
     };
   in buildEnv {
@@ -74,7 +74,7 @@ let
       (mkWeechat "weechat")
       (mkWeechat "weechat-headless")
     ];
-    meta = weechat.meta;
+    meta = builtins.removeAttrs weechat.meta [ "outputsToInstall" ];
   };
 
 in lib.makeOverridable wrapper

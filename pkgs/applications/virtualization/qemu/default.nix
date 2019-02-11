@@ -8,12 +8,13 @@
 , seccompSupport ? stdenv.isLinux, libseccomp
 , pulseSupport ? !stdenv.isDarwin, libpulseaudio
 , sdlSupport ? !stdenv.isDarwin, SDL2
-, gtkSupport ? !stdenv.isDarwin && !xenSupport, gtk3, gettext, gnome3
+, gtkSupport ? !stdenv.isDarwin && !xenSupport, gtk3, gettext, vte
 , vncSupport ? true, libjpeg, libpng
 , smartcardSupport ? true, libcacard
 , spiceSupport ? !stdenv.isDarwin, spice, spice-protocol
 , usbredirSupport ? spiceSupport, usbredir
 , xenSupport ? false, xen
+, cephSupport ? false, ceph
 , openGLSupport ? sdlSupport, mesa_noglu, epoxy, libdrm
 , virglSupport ? openGLSupport, virglrenderer
 , smbdSupport ? false, samba
@@ -56,13 +57,14 @@ stdenv.mkDerivation rec {
     ++ optionals numaSupport [ numactl ]
     ++ optionals pulseSupport [ libpulseaudio ]
     ++ optionals sdlSupport [ SDL2 ]
-    ++ optionals gtkSupport [ gtk3 gettext gnome3.vte ]
+    ++ optionals gtkSupport [ gtk3 gettext vte ]
     ++ optionals vncSupport [ libjpeg libpng ]
     ++ optionals smartcardSupport [ libcacard ]
     ++ optionals spiceSupport [ spice-protocol spice ]
     ++ optionals usbredirSupport [ usbredir ]
     ++ optionals stdenv.isLinux [ alsaLib libaio libcap_ng libcap attr ]
     ++ optionals xenSupport [ xen ]
+    ++ optionals cephSupport [ ceph ]
     ++ optionals openGLSupport [ mesa_noglu epoxy libdrm ]
     ++ optionals virglSupport [ virglrenderer ]
     ++ optionals smbdSupport [ samba ];
@@ -117,6 +119,7 @@ stdenv.mkDerivation rec {
     ++ optional stdenv.isLinux "--enable-linux-aio"
     ++ optional gtkSupport "--enable-gtk"
     ++ optional xenSupport "--enable-xen"
+    ++ optional cephSupport "--enable-rbd"
     ++ optional openGLSupport "--enable-opengl"
     ++ optional virglSupport "--enable-virglrenderer"
     ++ optional smbdSupport "--smbd=${samba}/bin/smbd";
@@ -125,9 +128,6 @@ stdenv.mkDerivation rec {
 
   postFixup =
     ''
-      for exe in $out/bin/qemu-system-* ; do
-        paxmark m $exe
-      done
       # copy qemu-ga (guest agent) to separate output
       mkdir -p $ga/bin
       cp $out/bin/qemu-ga $ga/bin/
