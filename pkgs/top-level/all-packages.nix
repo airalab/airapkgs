@@ -404,6 +404,13 @@ in
 
   actkbd = callPackage ../tools/system/actkbd { };
 
+  adlplug = callPackage ../applications/audio/adlplug { };
+
+  opnplug = callPackage ../applications/audio/adlplug {
+    adlplugChip = "-DADLplug_CHIP=OPN2";
+    pname = "OPNplug";
+  };
+
   advancecomp = callPackage ../tools/compression/advancecomp {};
 
   aefs = callPackage ../tools/filesystems/aefs { };
@@ -465,6 +472,8 @@ in
     inherit (darwin) cf-private;
     inherit (darwin.apple_sdk.frameworks) AppKit CoreFoundation CoreGraphics CoreServices CoreText Foundation OpenGL;
   };
+
+  aldo = callPackage ../applications/radio/aldo { };
 
   amazon-ecs-cli = callPackage ../tools/virtualization/amazon-ecs-cli { };
 
@@ -4635,6 +4644,10 @@ in
   };
 
   olsrd = callPackage ../tools/networking/olsrd { };
+
+  opl3bankeditor = libsForQt5.callPackage ../tools/audio/opl3bankeditor { };
+
+  opn2bankeditor = callPackage ../tools/audio/opl3bankeditor/opn2bankeditor.nix { };
 
   os-prober = callPackage ../tools/misc/os-prober {};
 
@@ -11443,7 +11456,9 @@ in
     then darwin.libunwind
     else callPackage ../development/libraries/libunwind { };
 
-  libuv = callPackage ../development/libraries/libuv { };
+  libuv = callPackage ../development/libraries/libuv {
+    inherit (darwin.apple_sdk.frameworks) ApplicationServices CoreServices;
+  };
 
   libv4l = lowPrio (v4l_utils.override {
     withUtils = false;
@@ -14113,6 +14128,7 @@ in
 
   tt-rss = callPackage ../servers/tt-rss { };
   tt-rss-plugin-tumblr-gdpr = callPackage ../servers/tt-rss/plugin-tumblr-gdpr { };
+  tt-rss-plugin-auth-ldap = callPackage ../servers/tt-rss/plugin-auth-ldap { };
   tt-rss-theme-feedly = callPackage ../servers/tt-rss/theme-feedly { };
 
   searx = callPackage ../servers/web-apps/searx { };
@@ -15582,6 +15598,8 @@ in
 
   go-font = callPackage ../data/fonts/go-font { };
 
+  greybird = callPackage ../data/themes/greybird { };
+
   gyre-fonts = callPackage ../data/fonts/gyre {};
 
   hack-font = callPackage ../data/fonts/hack { };
@@ -15991,6 +16009,8 @@ in
   zeal = libsForQt5.callPackage ../data/documentation/zeal { };
 
   zilla-slab = callPackage ../data/fonts/zilla-slab { };
+
+  zuki-themes = callPackage ../data/themes/zuki { };
 
 
   ### APPLICATIONS
@@ -17887,7 +17907,7 @@ in
     akonadi akregator ark dolphin dragon ffmpegthumbs filelight gwenview k3b
     kaddressbook kate kcachegrind kcalc kcharselect kcolorchooser kcontacts kdenlive kdf kdialog
     keditbookmarks kget kgpg khelpcenter kig kleopatra kmail kmix kolourpaint kompare konsole
-    kpkpass kitinerary kontact korganizer krdc krfb ksystemlog kwalletmanager marble minuet okular spectacle;
+    kpkpass kitinerary kontact korganizer krdc krfb ksystemlog ktouch kwalletmanager marble minuet okular spectacle;
 
   okteta = libsForQt5.callPackage ../applications/editors/okteta { };
 
@@ -18701,6 +18721,7 @@ in
   opera = callPackage ../applications/networking/browsers/opera {};
 
   orca = python3Packages.callPackage ../applications/misc/orca {
+    inherit (pkgs) pkgconfig;
     inherit (gnome3) yelp-tools;
   };
 
@@ -19682,6 +19703,8 @@ in
   tkcvs = callPackage ../applications/version-management/tkcvs { };
 
   tla = callPackage ../applications/version-management/arch { };
+
+  tlf = callPackage ../applications/radio/tlf { };
 
   tlp = callPackage ../tools/misc/tlp {
     inherit (linuxPackages) x86_energy_perf_policy;
@@ -22442,8 +22465,6 @@ in
     binutils-arm-embedded = pkgsCross.arm-embedded.buildPackages.binutils;
   };
 
-  greybird = callPackage ../misc/themes/greybird { };
-
   guetzli = callPackage ../applications/graphics/guetzli { };
 
   gummi = callPackage ../applications/misc/gummi { };
@@ -22699,6 +22720,8 @@ in
     nix-prefetch-scripts;
 
   nix-update-source = callPackage ../tools/package-management/nix-update-source {};
+
+  nix-script = callPackage ../tools/nix/nix-script {};
 
   nix-template-rpm = callPackage ../build-support/templaterpm { inherit (pythonPackages) python toposort; };
 
@@ -23259,8 +23282,6 @@ in
   wtf = callPackage ../applications/misc/wtf { };
 
   zk-shell = callPackage ../applications/misc/zk-shell { };
-
-  zuki-themes = callPackage ../misc/themes/zuki { };
 
   tora = libsForQt5.callPackage ../development/tools/tora {};
 
