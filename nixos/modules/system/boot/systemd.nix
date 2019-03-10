@@ -593,7 +593,7 @@ in
 
     services.journald.forwardToSyslog = mkOption {
       default = config.services.rsyslogd.enable || config.services.syslog-ng.enable;
-      defaultText = "config.services.rsyslogd.enable || config.services.syslog-ng.enable";
+      defaultText = "services.rsyslogd.enable || services.syslog-ng.enable";
       type = types.bool;
       description = ''
         Whether to forward log messages to syslog.
@@ -647,6 +647,19 @@ in
       description = ''
         Specifies what to be done when the laptop lid is closed
         and another screen is added.
+      '';
+    };
+
+    services.logind.lidSwitchExternalPower = mkOption {
+      default = config.services.logind.lidSwitch;
+      defaultText = "services.logind.lidSwitch";
+      example = "ignore";
+      type = logindHandlerType;
+
+      description = ''
+        Specifies what to do when the laptop lid is closed and the system is
+        on external power. By default use the same action as specified in
+        services.logind.lidSwitch.
       '';
     };
 
@@ -747,7 +760,10 @@ in
     environment.etc = let
       # generate contents for /etc/systemd/system-generators from
       # systemd.generators and systemd.generator-packages
-      generators = pkgs.runCommand "system-generators" { packages = cfg.generator-packages; } ''
+      generators = pkgs.runCommand "system-generators" {
+          preferLocalBuild = true;
+          packages = cfg.generator-packages;
+        } ''
         mkdir -p $out
         for package in $packages
         do
@@ -797,6 +813,7 @@ in
         KillUserProcesses=${if config.services.logind.killUserProcesses then "yes" else "no"}
         HandleLidSwitch=${config.services.logind.lidSwitch}
         HandleLidSwitchDocked=${config.services.logind.lidSwitchDocked}
+        HandleLidSwitchExternalPower=${config.services.logind.lidSwitchExternalPower}
         ${config.services.logind.extraConfig}
       '';
 

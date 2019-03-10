@@ -67,6 +67,7 @@ let
   trivialBuilders = self: super:
     import ../build-support/trivial-builders.nix {
       inherit lib; inherit (self) stdenv stdenvNoCC; inherit (self.xorg) lndir;
+      inherit (self) runtimeShell;
     };
 
   stdenvBootstappingAndPlatforms = self: super: {
@@ -90,7 +91,7 @@ let
 
   allPackages = self: super:
     let res = import ./all-packages.nix
-      { inherit lib noSysDirs config; }
+      { inherit lib noSysDirs config overlays; }
       res self super;
     in res;
 

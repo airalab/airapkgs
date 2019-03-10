@@ -99,7 +99,7 @@ mapAliases ({
   firefox-wrapper = firefox;          # 2016-01
   firefoxWrapper = firefox;           # 2015-09
   flameGraph = flamegraph; # added 2018-04-25
-  font-awesome-ttf = font-awesome_4; # 2018-02-25
+  font-awesome-ttf = font-awesome; # 2018-02-25
   foomatic_filters = foomatic-filters;  # 2016-08
   fuse_exfat = exfat;                   # 2015-09-11
   fuseki = apache-jena-fuseki; # added 2018-04-25
@@ -209,6 +209,7 @@ mapAliases ({
   nilfs_utils = nilfs-utils; # added 2018-04-25
   nmap_graphical = nmap-graphical;  # added 2017-01-19
   nologin = shadow; # added 2018-04-25
+  nxproxy = nx-libs; # added 2019-02-15
   opencascade_oce = opencascade; # added 2018-04-25
   opencl-icd = ocl-icd; # added 2017-01-20
   openexr_ctl = ctl; # added 2018-04-25
@@ -341,6 +342,7 @@ mapAliases ({
   vimprobable2Wrapper = vimprobable2; # added 2015-01
   virtviewer = virt-viewer; # added 2015-12-24
   vorbisTools = vorbis-tools; # added 2016-01-26
+  webkit = webkitgtk; # added 2019-03-05
   weechat-xmpp = weechatScripts.weechat-xmpp; # added 2018-09-06
   weechat-matrix-bridge = weechatScripts.weechat-matrix-bridge; # added 2018-09-06
   wineStaging = wine-staging; # added 2018-01-08
@@ -388,12 +390,10 @@ mapAliases ({
     gstPluginsBad = pkgs.gst-plugins-bad;
     gstPluginsGood = pkgs.gst-plugins-good;
     gstPluginsUgly = pkgs.gst-plugins-ugly;
-    gstFfmpeg = pkgs.gst-ffmpeg;
     gst-plugins-base = pkgs.gst-plugins-base;
     gst-plugins-bad = pkgs.gst-plugins-bad;
     gst-plugins-good = pkgs.gst-plugins-good;
     gst-plugins-ugly = pkgs.gst-plugins-ugly;
-    gst-ffmpeg = pkgs.gst-ffmpeg;
   };
 } // (with ocaml-ng; { # added 2016-09-14
   ocaml_4_00_1 = ocamlPackages_4_00_1.ocaml;

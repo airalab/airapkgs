@@ -10,10 +10,10 @@ rec {
 
   firefox = common rec {
     pname = "firefox";
-    ffversion = "65.0";
+    ffversion = "65.0.2";
     src = fetchurl {
       url = "mirror://mozilla/firefox/releases/${ffversion}/source/firefox-${ffversion}.source.tar.xz";
-      sha512 = "39bx76whgf53rkfqqy8gfhd44wikh89zpnqr930v4grqg3v0pfr8mbvp7xzjjlf5r7bski0wxibn9vyyy273fp99zyj1w2m5ihh9aqh";
+      sha512 = "2qai7krlc5whsbnwbn67d63lbm7j8mnx8nq0cw44j9nf5gnqx80afqcs08705xlf0n350xa5iif6b9m4nw0jwikps25cirwavrra348";
     };
 
     patches = [
@@ -25,7 +25,7 @@ rec {
     meta = {
       description = "A web browser built from Firefox source tree";
       homepage = http://www.mozilla.com/en-US/firefox/;
-      maintainers = with lib.maintainers; [ eelco ];
+      maintainers = with lib.maintainers; [ eelco andir ];
       platforms = lib.platforms.unix;
       license = lib.licenses.mpl20;
     };
@@ -67,10 +67,10 @@ rec {
 
   firefox-esr-60 = common rec {
     pname = "firefox-esr";
-    ffversion = "60.5.0esr";
+    ffversion = "60.5.2esr";
     src = fetchurl {
       url = "mirror://mozilla/firefox/releases/${ffversion}/source/firefox-${ffversion}.source.tar.xz";
-      sha512 = "3n7l146gdjwhi0iq85awc0yykvi4x5m91mcylxa5mrq911bv6xgn2i92nzhgnhdilqap5218778vgvnalikzsh67irrncx1hy5f6iyx";
+      sha512 = "36yzxf0ac5kf8y0z7v14dryw29zn06nm2g8brzrm1ggbsbasmki5cb9kkmvcpxs8w2h26ldnjnybzlnwx14002rd0xbhf6hzjpfbrsv";
     };
 
     patches = [
@@ -237,16 +237,16 @@ in rec {
   };
 
   tor-browser-8-0 = tbcommon rec {
-    ffversion = "60.5.0esr";
-    tbversion = "8.0.5";
+    ffversion = "60.5.1esr";
+    tbversion = "8.0.6";
 
     # FIXME: fetchFromGitHub is not ideal, unpacked source is >900Mb
     src = fetchFromGitHub {
       owner = "SLNOS";
       repo  = "tor-browser";
-      # branch "tor-browser-60.5.0esr-8.0-1-slnos"
-      rev   = "7f113a4ea0539bd2ea9687fe4296c880f2b006c4";
-      sha256 = "11qbhwy2q9rinfw8337b9f78x0r26lnxg25581z85vxshp2jszdq";
+      # branch "tor-browser-60.5.1esr-8.0-1-slnos"
+      rev   = "89be91fc7cbc420b7c4a3bfc36d2b0d500dd3ccf";
+      sha256 = "022zjfwsdl0dkg6ck2kha4nf91xm3j9ag5n21zna98szg3x82dj1";
     };
   };
 
