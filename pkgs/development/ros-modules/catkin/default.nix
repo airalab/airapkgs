@@ -7,7 +7,7 @@
 
 let
   pname = "catkin";
-  version = "0.7.14";
+  version = "0.7.15";
   rosdistro = "melodic";
 
 in stdenv.mkDerivation {
@@ -17,7 +17,7 @@ in stdenv.mkDerivation {
     owner = "ros-gbp";
     repo = "${pname}-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0dhfm1mya467dv6qc6j86f0yxbwqgvf2319p2r6bpvngjby51d86";
+    sha256 = "18v3x5zlcb3ah7d7mcg1jxpsl9df7vhq1215339sd0z2p5w49k70";
   };
   
   cmakeFlags = "-DCATKIN_ENABLE_TESTING=OFF -DSETUPTOOLS_DEB_LAYOUT=OFF";
