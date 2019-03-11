@@ -11,7 +11,7 @@
 
 let
   pname = "web3";
-  version = "4.8.2";
+  version = "4.8.3";
 in buildPythonPackage rec {
   name = "${pname}-${version}";
 
@@ -19,7 +19,7 @@ in buildPythonPackage rec {
     owner = "ethereum";
     repo = "${pname}.py";
     rev = "v${version}";
-    sha256 = "0yw018n82g6vvm6djzni5yl5q51ns8kji7971rp5rzlgrcqrhq19";
+    sha256 = "1dxdw55znjbpacp0128w7bivkfq4sr0v9aaxx8wpn1anijy1kvy8";
   };
 
   patches = [ ./append-sid-tld.patch ];
