@@ -16,19 +16,20 @@ let
 in stdenv.mkDerivation rec {
   name = "${pname}-${version}";
   pname = "robonomics_contracts";
-  version = "1.0-rc2";
+  version = "v1.0";
 
   src = fetchFromGitHub {
       owner = "airalab";
       repo = pname;
-      rev = "2da5bbe6d5b65ad45cb78566600f2c86b7cd64ff";
-      sha256 = "1ri8hsqcd2s4dv099whgn4j1m6l9v7jyignxi9k6larg5yk7jp7b";
+      rev = version;
+      sha256 = "12d2davqd9av08pqydpaxmihb0dpn1ikll8y84sjvkzds6hxb5gp";
   };
 
   prePatch = ''
+    ln -s config.js.example config.js
     mkdir node_modules
-    cp -R ${nodePackages.openzeppelin-solidity}/lib/node_modules/openzeppelin-solidity node_modules
-    cp -R ${nodePackages."truffle-5.0.0"}/lib/node_modules/truffle node_modules
+    cp -R ${nodePackages."openzeppelin-solidity-2.1.2"}/lib/node_modules/openzeppelin-solidity node_modules
+    cp -R ${nodePackages."truffle-5.0.2"}/lib/node_modules/truffle node_modules
     chmod 755 node_modules/truffle/build/
     chmod 755 node_modules/truffle/build/cli.bundled.js
     echo "truffle moved"

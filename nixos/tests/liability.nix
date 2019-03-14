@@ -72,8 +72,8 @@ reseal_on_txs = "none"
 
   ENS_address = "0x5F3DBa5e45909D1bf126aA0aF0601B1a369dbFD7";
 
-  lighthouse_contract = "test.lighthouse.4.robonomics.eth";
-  factory_contract = "factory.4.robonomics.eth";
+  lighthouse_contract = "test.lighthouse.5.robonomics.eth";
+  factory_contract = "factory.5.robonomics.eth";
 
   keyfile = "/etc/keys/LiabilityTest/user.keyfile";
   keyfile_password_file = "/etc/keys/user.psk";
@@ -83,6 +83,8 @@ reseal_on_txs = "none"
 
   web3_http_provider = "http://127.0.0.1:10545";
   web3_ws_provider = "ws://127.0.0.1:10546";
+
+  chain_id = "8995";
 
 in {
   name = "liability";
@@ -139,7 +141,7 @@ in {
           ens = ENS_address;
           keyfile = keyfile;
           keyfile_password_file = keyfile_password_file;
-          graph_topic = "graph.4.robonomics.eth";
+          graph_topic = "graph.5.robonomics.eth";
           graph = false;
         };
 
@@ -166,7 +168,7 @@ user'';
         environment.etc."resolv.conf".text = "nameserver 8.8.8.8";
         environment.etc."liability-test-chain.json".text = chain_spec;
 
-        environment.etc."xrtc-launch".text = "xrtd --private 3df8095dfbae93d8c7f1143b217a483d57a7f745e2542425dfe2fa25264cb2e8 --web3 http://localhost:10545 --ens 0x5F3DBa5e45909D1bf126aA0aF0601B1a369dbFD7 --chain 8995 --lighthouse test.lighthouse.4.robonomics.eth > /tmp/xrtd.log 2>&1 &";
+        #environment.etc."xrtc-launch".text = "xrtd --private 3df8095dfbae93d8c7f1143b217a483d57a7f745e2542425dfe2fa25264cb2e8 --web3 http://localhost:10545 --ens 0x5F3DBa5e45909D1bf126aA0aF0601B1a369dbFD7 --chain 8995 --lighthouse test.lighthouse.4.robonomics.eth > /tmp/xrtd.log 2>&1 &";
 
         networking.firewall.enable = false;
       };
@@ -190,7 +192,7 @@ user'';
 
     #run xrtd. TODO: systemd service
     $liability_node->mustSucceed("
-      xrtd --private ${user_account_private_key} --web3 ${web3_http_provider} --ens ${ENS_address} --chain 8995 --lighthouse ${lighthouse_contract} > /tmp/xrtd.log 2>&1 &
+      xrtd --private ${user_account_private_key} --web3 ${web3_http_provider} --ens ${ENS_address} --chain ${chain_id} --lighthouse ${lighthouse_contract} > /tmp/xrtd.log 2>&1 &
     ");
 
     $liability_node->mustSucceed("

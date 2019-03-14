@@ -4,8 +4,8 @@
 , "chai-as-promised"
 , "eth-gas-reporter"
 , "eth-ens-namehash"
-, "openzeppelin-solidity"
+, { "openzeppelin-solidity": "2.1.2" }
 , { "ganache-cli": "6.2.4" }
-, { "truffle": "5.0.0" }
+, { "truffle": "5.0.2" }
 , "truffle-flattener"
 ]
