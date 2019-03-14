@@ -1,14 +1,14 @@
 --- a/node_modules/truffle/build/cli.bundled.js	2018-12-19 02:41:07.720451242 +0300
 +++ b/node_modules/truffle/build/cli.bundled.js	2018-12-19 02:41:24.226514730 +0300
-@@ -456390,11 +456390,19 @@
- const { execSync } = __webpack_require__(55);
- const request = __webpack_require__(2717);
- const requireFromString = __webpack_require__(2036);
--const findCacheDir = __webpack_require__(2575);
- const originalRequire = __webpack_require__(413);
- const solcWrap = __webpack_require__(2759);
- const ora = __webpack_require__(1151);
- const semver = __webpack_require__(510);
+@@ -441437,11 +441437,19 @@
+ const { execSync } = __webpack_require__(50);
+ const request = __webpack_require__(2698);
+ const requireFromString = __webpack_require__(2044);
+-const findCacheDir = __webpack_require__(2561);
+ const originalRequire = __webpack_require__(403);
+ const solcWrap = __webpack_require__(2731);
+ const ora = __webpack_require__(1137);
+ const semver = __webpack_require__(504);
 +const findCacheDir = opts => {
 +    const cache = path.join(require('os').tmpdir(), opts.name);
 +    if (opts.create && !fs.existsSync(cache)){ fs.mkdirSync(cache); }
