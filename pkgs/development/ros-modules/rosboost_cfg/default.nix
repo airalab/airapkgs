@@ -6,7 +6,7 @@
 
 let
   pname = "rosboost_cfg";
-  version = "1.14.4";
+  version = "1.14.6";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -16,7 +16,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0ymdfrdhr0kkk4cxbrqs13jk5cjx4dc2w0s7ac78bv1sa91dhlgn";
+    sha256 = "1d92nzcdvhfzmxgv9c02v1yjjxa7ds1k39j537x7lbw84wyf23g9";
   };
 
   propagatedBuildInputs = [ catkin ];

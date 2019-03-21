@@ -9,7 +9,7 @@
 
 let
   pname = "roscpp_serialization";
-  version = "0.6.11";
+  version = "0.6.12";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -19,7 +19,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "roscpp_core-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1rgw9xvnbc64gbxc7aw797hbq49v1ql783msyf2njda4fcmwzwpp";
+    sha256 = "0cid1kh7nd7k5n6r2crwx5nrcf45vmb03vd579hwf8l2agkbvb4k";
   };
 
   propagatedBuildInputs = [ catkin cpp_common rostime roscpp_traits ];

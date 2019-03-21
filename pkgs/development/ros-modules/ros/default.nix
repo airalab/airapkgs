@@ -15,7 +15,7 @@
 
 let
   pname = "ros";
-  version = "1.14.4";
+  version = "1.14.6";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -25,7 +25,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "${pname}-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1zvm652m90fq2wzpl1s6ay45z6sbv2pgbx6wfz47kshvvs4yd2w3";
+    sha256 = "0kwa2alz4hxp20qclfpcwr2wahd76la06k3xh5k0062r6pp7d64w";
   };
 
   propagatedBuildInputs = [ catkin rosbash rosboost_cfg rosbuild rosclean

@@ -8,14 +8,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "std_msgs";
-  version = "0.5.11";
+  version = "0.5.12";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "std_msgs-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0wb2c2m0c7ysfwmyanrkx7n1iy0xr7fawjp2vf6xmk5469jz2l9b";
+    sha256 = "0zi3c11c0xrlz2ikjrjw9v3587blikplyry2wfdzavxzd44hf8w9";
   };
 
   propagatedBuildInputs = [ message_generation message_runtime ];

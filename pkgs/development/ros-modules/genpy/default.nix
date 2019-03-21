@@ -8,14 +8,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "genpy";
-  version = "0.6.7";
+  version = "0.6.8";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "${pname}-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1mvyiwn98n07nfsd2igx8g7laink4c7g5f7g1ljqqpsighrxn5jd";
+    sha256 = "0mcka9l02bblrxddybm3msn8rzxi4pb6fx3vi7jy19dzcqgnkg05";
   };
 
   propagatedBuildInputs = with python3Packages; [ genmsg pyyaml ];

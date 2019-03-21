@@ -6,7 +6,7 @@
 
 let
   pname = "genmsg";
-  version = "0.5.11";
+  version = "0.5.12";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -16,7 +16,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "${pname}-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "04ya9x910yvbpk883y3cpw2kmbkg8l8hl808sh79cyk4ff6hd0wf";
+    sha256 = "1jlkf6nk86ywppjk9241l7a2li14mwmx62pq8651x1yrskbpz818";
   };
 
   propagatedBuildInputs = [ catkin ];

@@ -7,7 +7,7 @@
 
 let
   pname = "rosunit";
-  version = "1.14.4";
+  version = "1.14.6";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -17,10 +17,8 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0czgdsy7acg32a6vhshfk61m8gqay1qv65v8i9fi4r4zc235d0sh";
+    sha256 = "1r8igvbmyhnwjflianshifcykgpvbcfcs4smg1qf78bb0grh6a7w";
   };
-
-  patches = [ ./print_report_stream_write_argument_type_fix.patch ];
 
   propagatedBuildInputs = [ catkin roslib ];
 

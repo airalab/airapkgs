@@ -7,7 +7,7 @@
 
 let
   pname = "rostime";
-  version = "0.6.11";
+  version = "0.6.7";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -17,7 +17,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "roscpp_core-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0500gr9y1vrwbhx2ihnyaprys7svpg2hxkk191y3x5b969lc8ibm";
+    sha256 = "10skmbdkygis1ag0mpn3215yb2fbfaqrkdkna4ypp3clnmdj9dhj";
   };
 
   propagatedBuildInputs = [ catkin cpp_common ];

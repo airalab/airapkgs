@@ -9,14 +9,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "roslib";
-  version = "1.14.4";
+  version = "1.14.6";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "ros-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1a9xp0qfihhsls8ab89qdxvn4cr0kw4r7516ddi7h4d8j9cx9crd";
+    sha256 = "1zsx3jp24aipvv97pb4527825xd70hh71q4k5lz3agsdypgnrmwr";
   };
 
   buildInputs = [ boost ];

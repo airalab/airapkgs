@@ -7,14 +7,14 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "gencpp";
-  version = "0.6.0";
+  version = "0.6.2";
   rosdistro = "melodic";
 
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "${pname}-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1wjizls8h2qjjq8aliwqvxd86p2jzll4cq66grzf8j7aj3dxvyl2";
+    sha256 = "0vvbi2nkdalmq6h3kr2r9r3ragpxhrw5zdfxihrxd8g0jiqsa8s5";
   };
 
   propagatedBuildInputs = [ genmsg ];

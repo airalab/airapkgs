@@ -6,7 +6,7 @@
 
 let
   pname = "rosmake";
-  version = "1.14.4";
+  version = "1.14.6";
   rosdistro = "melodic";
 
 in mkRosPackage {
@@ -16,7 +16,7 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0kk49a5xmlp4dv90rzf22kz5yjn4dw67lny6rss2qsanpr01zgmy";
+    sha256 = "1abv7pi9cqjk5y9rss9y602yk2p49mvl46m5hsrpw8bjxm1ldrs7";
   };
 
   propagatedBuildInputs = [ catkin ];
