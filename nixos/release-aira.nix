@@ -4,7 +4,7 @@
 
 { nixpkgs ? { outPath = (import ../lib).cleanSource ./..; revCount = 56789; shortRev = "gfedcba"; }
 , stableBranch ? false
-, supportedSystems ? [ "x86_64-linux" "aarch64-linux" ]
+, supportedSystems ? [ "x86_64-linux" ]# "aarch64-linux" ]
 }:
 
 let
@@ -52,6 +52,7 @@ in rec {
     }).config.system.build.virtualBoxOVA);
 
   # A bootable SD card image for AArch64 SBCs.
+  /*
   sd_image = with import nixpkgsSrc { system = "aarch64-linux"; };
     lib.hydraJob ((import lib/eval-config.nix {
       inherit system;
@@ -61,6 +62,7 @@ in rec {
           ./modules/profiles/aira-foundation.nix
         ];
     }).config.system.build.sdImage);
+  */
 
   nixpkgs = {
     inherit (nixpkgs')
@@ -91,7 +93,7 @@ in rec {
     constituents =
       [ nixpkgs.tarball
         ova_image
-        sd_image
+        #sd_image
       ]
       ++ lib.collect lib.isDerivation nixos;
   });
