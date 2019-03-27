@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage rec {
   meta = with stdenv.lib; {
     description = "Robonomics on Substrate";
     homepage = https://github.com/airalab/substrate-node-robonomics;
-    license = licenses.asl2;
+    license = licenses.asl20;
     maintainers = [ maintainers.akru ];
     platforms = platforms.linux;
   };
