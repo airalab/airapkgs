@@ -1,24 +1,27 @@
 { stdenv
 , fetchFromGitHub
 , rustPlatform
+, llvmPackages
 , pkgconfig
 , openssl
+, clang
 }:
 
 rustPlatform.buildRustPackage rec {
   name = "polkadot-${version}";
-  version = "0.2.17";
+  version = "0.3.20";
 
   src = fetchFromGitHub {
-    owner = "paritytech";
-    repo = "substrate";
-    rev = "19f4f4d4df3bb266086b4e488739f73d3d5e588c";
-    sha256 = "0v7g03rbml2afw0splmyjh9nqpjg0ldjw09hyc0jqd3qlhgxiiyj";
+    owner = "akru";
+    repo = "polkadot";
+    rev = "v${version}";
+    sha256 = "10gjas3g56b1rmviq31gs8ca658idh56xayi42726dyyc9db8gka";
   }; 
 
-  cargoSha256 = "0wwkaxqj2v5zach5xcqfzf6prc0gxy2v47janglp44xbxbx9xk08";
+  cargoSha256 = "0ncmcrci559v4hmh3w9hwm0ym9qjdqviahsgix425jglpqp3jsvd";
 
-  buildInputs = [ pkgconfig openssl openssl.dev ];
+  buildInputs = [ pkgconfig openssl openssl.dev clang ];
+  LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
 
   meta = with stdenv.lib; {
     description = "Polkadot Node Implementation";
