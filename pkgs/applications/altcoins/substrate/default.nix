@@ -15,11 +15,11 @@ rustPlatform.buildRustPackage rec {
   src = fetchFromGitHub {
     owner = "paritytech";
     repo = "substrate";
-    rev = "c0556a24cdc51545e10d2e95e78c50a69430046a";
-    sha256 = "133bjm8z9wy4xq9j40hslwlhvydl2k8k11b1lmw5r4aq5s88pmm6";
+    rev = "72409f9fd1dcf25b094dc09a31a9f831dd56411a";
+    sha256 = "0b40c2g151mm0vgh8sbz9kqxr541256x2mhdv2mskhlkkcggx5f7";
   }; 
 
-  cargoSha256 = "0001sg94ivrnkrhmi11b7n3jbh5p242bh15ypfq2ip9q3kkh6wan";
+  cargoSha256 = "1amq6zkb1aq2qjiq5xxl3zwihh0zm098nfi814fmg3h8qan5x52v";
 
   buildInputs = [ pkgconfig openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
