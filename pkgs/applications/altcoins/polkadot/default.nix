@@ -9,16 +9,16 @@
 
 rustPlatform.buildRustPackage rec {
   name = "polkadot-${version}";
-  version = "0.3.20";
+  version = "0.3.21";
 
   src = fetchFromGitHub {
     owner = "akru";
     repo = "polkadot";
     rev = "v${version}";
-    sha256 = "10gjas3g56b1rmviq31gs8ca658idh56xayi42726dyyc9db8gka";
+    sha256 = "0x0rf3bi45axr6jnsayy26vnzwfw7xmky8w7syd4nv0an8g3k40i";
   }; 
 
-  cargoSha256 = "0ncmcrci559v4hmh3w9hwm0ym9qjdqviahsgix425jglpqp3jsvd";
+  cargoSha256 = "173xkapmg6dsvs1v2hcp2k8svzrf45dkiqxkrlpkzarbkqf79i1a";
 
   buildInputs = [ pkgconfig openssl openssl.dev clang ];
   LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
