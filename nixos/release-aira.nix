@@ -81,7 +81,8 @@ in rec {
       robonomics_comm
       robonomics_comm-nightly
       robonomics_tutorials
-      robonomics-tools;
+      robonomics-tools
+      substrate-node-robonomics;
   };
 
   tested = lib.hydraJob (pkgs.releaseTools.aggregate {
