@@ -23584,6 +23584,8 @@ in
 
   bond = callPackage ../development/ros-modules/bond { };
 
+  smclib = callPackage ../development/ros-modules/smclib { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };
