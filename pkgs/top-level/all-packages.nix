@@ -23580,6 +23580,10 @@ in
 
   nodelet_topic_tools = callPackage ../development/ros-modules/nodelet_topic_tools { };
 
+  bondcpp = callPackage ../development/ros-modules/bondcpp { };
+
+  bond = callPackage ../development/ros-modules/bond { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };
