@@ -23588,6 +23588,8 @@ in
 
   uuid_msgs = callPackage ../development/ros-modules/uuid_msgs { };
 
+  pcl_msgs = callPackage ../development/ros-modules/pcl_msgs { };
+
   tf = callPackage ../development/ros-modules/tf { };
 
   tf2 = callPackage ../development/ros-modules/tf2 { };
