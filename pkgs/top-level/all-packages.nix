@@ -23578,6 +23578,8 @@ in
 
   nodelet = callPackage ../development/ros-modules/nodelet { };
 
+  nodelet_topic_tools = callPackage ../development/ros-modules/nodelet_topic_tools { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };
