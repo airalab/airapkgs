@@ -23576,6 +23576,8 @@ in
 
   dynamic_reconfigure = callPackage ../development/ros-modules/dynamic_reconfigure { };
 
+  nodelet = callPackage ../development/ros-modules/nodelet { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };
