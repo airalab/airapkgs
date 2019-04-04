@@ -23566,6 +23566,8 @@ in
 
   mavros = callPackage ../development/ros-modules/mavros { };
 
+  joy = callPackage ../development/ros-modules/joy { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };

@@ -3431,6 +3431,11 @@
     github = "nphilou";
     name = "Philippe Nguyen";
   };
+  nschoe = {
+    email = "nschoe@protonmail.com";
+    github = "nschoe";
+    name = "Nicolas Schoemaeker";
+  };
   nslqqq = {
     email = "nslqqq@gmail.com";
     name = "Nikita Mikhailov";
