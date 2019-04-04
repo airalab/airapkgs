@@ -9783,6 +9783,8 @@ in
 
   eigen2 = callPackage ../development/libraries/eigen/2.0.nix {};
 
+  eigen3_3 = eigen;
+
   vmmlib = callPackage ../development/libraries/vmmlib {
     inherit (darwin.apple_sdk.frameworks) Accelerate CoreGraphics CoreVideo;
   };
@@ -23567,6 +23569,10 @@ in
   mavros = callPackage ../development/ros-modules/mavros { };
 
   joy = callPackage ../development/ros-modules/joy { };
+
+  pcl_ros = callPackage ../development/ros-modules/pcl_ros { };
+
+  pcl_conversions = callPackage ../development/ros-modules/pcl_conversions { };
 
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
