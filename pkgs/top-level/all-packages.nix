@@ -23574,6 +23574,8 @@ in
 
   pcl_conversions = callPackage ../development/ros-modules/pcl_conversions { };
 
+  dynamic_reconfigure = callPackage ../development/ros-modules/dynamic_reconfigure { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };
