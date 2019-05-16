@@ -5485,6 +5485,8 @@ in
 
   reftools = callPackage ../development/tools/reftools { };
 
+  repetier-host = callPackage ../applications/misc/repetier-host { };
+
   reposurgeon = callPackage ../applications/version-management/reposurgeon { };
 
   reptyr = callPackage ../os-specific/linux/reptyr {};
