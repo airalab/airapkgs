@@ -239,6 +239,8 @@ in {
 
   azure = callPackage ../development/python-modules/azure { };
 
+  azure-agent  = callPackage ../development/python-modules/azure-agent { };
+
   azure-nspkg = callPackage ../development/python-modules/azure-nspkg { };
 
   azure-common = callPackage ../development/python-modules/azure-common { };
