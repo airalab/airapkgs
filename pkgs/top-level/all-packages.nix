@@ -23474,6 +23474,10 @@ in
 
   rosgraph_msgs = callPackage ../development/ros-modules/rosgraph_msgs { };
 
+  control_msgs = callPackage ../development/ros-modules/control_msgs { };
+
+  trajectory_msgs = callPackage ../development/ros-modules/trajectory_msgs { };
+
   cpp_common = callPackage ../development/ros-modules/cpp_common { };
 
   roscpp_serialization = callPackage ../development/ros-modules/roscpp_serialization { };
@@ -23541,6 +23545,12 @@ in
   roswtf = callPackage ../development/ros-modules/roswtf { };
 
   topic_tools = callPackage ../development/ros-modules/topic_tools { };
+
+  teleop_tools = callPackage ../development/ros-modules/teleop_tools { };
+
+  key_teleop = callPackage ../development/ros-modules/key_teleop { };
+
+  teleop_twist_keyboard = callPackage ../development/ros-modules/teleop_twist_keyboard { };
 
   ros_comm = callPackage ../development/ros-modules/ros_comm { };
 
