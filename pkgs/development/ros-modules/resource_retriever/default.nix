@@ -4,6 +4,7 @@
 , catkin
 , rosconsole
 , roslib
+, curl
 }:
 
 let
@@ -21,7 +22,7 @@ in mkRosPackage {
     sha256 = "0ppp8m3s0xx72ffgpj5ym9xflcj7dcbv8afz2690ky51g6npmqv5";
   };
 
-propagatedBuildInputs = [ catkin rosconsole roslib ];
+propagatedBuildInputs = [ catkin rosconsole roslib curl ];
 
   meta = with stdenv.lib; {
     description = "Retrieves data from url-format files such as http://, ftp://, package:// file://, etc., and loads the data into memory.";
