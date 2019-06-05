@@ -17,8 +17,8 @@ in mkRosPackage {
   src = fetchFromGitHub {
     owner = "ros-gbp";
     repo = "urdfdom_headers-release";
-    rev = "release/${rosdistro}/${pname}/${version}-2";
-    sha256 = "10d8c0149850xrgpkvwflbkdsq5hzibh128kka4awihn6cf49hrp";
+    rev = "release/${rosdistro}/${pname}/${version}-1";
+    sha256 = "0q7130hpqs0m24n39fw7xijacljn6j0r2ycry4jakzpbhn8qr35p";
   };
 
 propagatedBuildInputs = [ catkin ];

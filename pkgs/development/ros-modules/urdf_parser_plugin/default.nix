@@ -2,6 +2,7 @@
 , mkRosPackage
 , fetchFromGitHub
 , catkin
+, urdfdom_headers
 }:
 
 let
@@ -19,7 +20,7 @@ in mkRosPackage {
     sha256 = "1ppq48zzg0gwyllznxgav3lkhyxzdfq54y99acbxhkbqfkfqcyi8";
   };
 
-propagatedBuildInputs = [ catkin ];
+  propagatedBuildInputs = [ catkin urdfdom_headers ];
 
   meta = with stdenv.lib; {
     description = "Base class for URDF parsers.";
