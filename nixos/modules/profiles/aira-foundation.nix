@@ -3,10 +3,10 @@
 let
   web3_http_provider = "https://mainnet.infura.io/v3/cd7368514cbd4135b06e2c5581a4fff7";
   web3_ws_provider = "wss://mainnet.infura.io/ws";
-  lighthouse = "airalab.lighthouse.4.robonomics.eth";
-  factory = "factory.4.robonomics.eth";
-  graph_topic = "graph.4.robonomics.eth";
-  token = "xrt.4.robonomics.eth";
+  lighthouse = "airalab.lighthouse.5.robonomics.eth";
+  factory = "factory.5.robonomics.eth";
+  graph_topic = "graph.5.robonomics.eth";
+  token = "xrt.5.robonomics.eth";
 
 in {
   # Enable light robot liability service

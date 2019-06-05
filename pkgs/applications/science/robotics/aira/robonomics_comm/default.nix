@@ -8,13 +8,13 @@
 mkRosPackage rec {
   name = "${pname}-${version}";
   pname = "robonomics_comm";
-  version = "0.5.1";
+  version = "1.0.0";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = "robonomics_comm";
-    rev = "05b93f5b9f336cd8d76a318025ad83a7d2e90c2c";
-    sha256 = "01hgjfs1y47m7a63nj6ig3k4l7lnswkncgx7p18q75m7f6iys75p";
+    rev = "v${version}";
+    sha256 = "1d65w991q18fmy5nzc04kbx3swbla8qb7ac8c8x93kbfq9l9y4yj";
   };
 
   propagatedBuildInputs = with python3Packages;

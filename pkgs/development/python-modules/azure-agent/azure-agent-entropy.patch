@@ -1,0 +1,17 @@
+--- a/bin/waagent2.0	2019-05-17 04:20:00.728088851 +0200
++++ a/bin/waagent2.0	2019-05-17 04:20:00.572680025 +0200
+@@ -5678,10 +5678,10 @@
+             Log("MAC  address: " + ":".join(["%02X" % Ord(a) for a in mac]))
+         
+         # Consume Entropy in ACPI table provided by Hyper-V
+-        try:
+-            SetFileContents("/dev/random", GetFileContents("/sys/firmware/acpi/tables/OEM0"))
+-        except:
+-            pass
++        #try:
++        #    SetFileContents("/dev/random", GetFileContents("/sys/firmware/acpi/tables/OEM0"))
++        #except:
++        #    pass
+ 
+         Log("Probing for Azure environment.")
+         self.Endpoint = self.DoDhcpWork()

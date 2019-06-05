@@ -3,11 +3,11 @@
 let
   web3_http_provider = "https://sidechain.aira.life/rpc";
   web3_ws_provider = "wss://sidechain.aira.life/ws";
-  lighthouse = "airalab.lighthouse.4.robonomics.sid";
-  factory = "factory.4.robonomics.sid";
-  graph_topic = "graph.4.robonomics.sid";
-  token = "xrt.4.robonomics.sid";
-  ens = "0x4e978ed8A05b516D8130Ff7dF54Fbc8b7ceB6442";
+  lighthouse = "airalab.lighthouse.5.robonomics.sid";
+  factory = "factory.5.robonomics.sid";
+  graph_topic = "graph.5.robonomics.sid";
+  token = "xrt.5.robonomics.sid";
+  ens = "0xaC4Ac4801b50b74aa3222B5Ba282FF54407B3941";
 
 in {
   # Enable light robot liability service
