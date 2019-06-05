@@ -8,6 +8,8 @@
 , roscpp
 , urdf_parser_plugin
 , urdfdom_headers
+, urdfdom
+, tinyxml-2
 }:
 
 let
@@ -25,7 +27,7 @@ in mkRosPackage {
     sha256 = "10d8c0149850xrgpkvwflbkdsq5hzibh128kka4awihn6cf49hrp";
   };
 
-  propagatedBuildInputs = [ catkin cmake_modules pluginlib rosconsole_bridge roscpp urdf_parser_plugin urdfdom_headers ];
+  propagatedBuildInputs = [ catkin cmake_modules pluginlib rosconsole_bridge roscpp urdf_parser_plugin urdfdom_headers urdfdom tinyxml-2 ];
 
   meta = with stdenv.lib; {
     description = "Parser for the Unified Robot Description Format (URDF).";
