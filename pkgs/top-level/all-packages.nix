@@ -23504,6 +23504,12 @@ in
 
   rosconsole_bridge = callPackage ../development/ros-modules/rosconsole_bridge { };
 
+  rviz = callPackage ../development/ros-modules/rviz { } ;
+
+  interactive_markers = callPackage ../development/ros-modules/interactive_markers { } ;
+
+  laser_geometry = callPackage ../development/ros-modules/laser_geometry { } ;
+
   roslang = callPackage ../development/ros-modules/roslang { };
 
   rosmake = callPackage ../development/ros-modules/rosmake { };
@@ -23602,6 +23608,20 @@ in
 
   angles = callPackage ../development/ros-modules/angles { };
 
+  media_export = callPackage ../development/ros-modules/media_export { };
+
+  python_qt_binding = callPackage ../development/ros-modules/python_qt_binding { };
+
+  resource_retriever = callPackage ../development/ros-modules/resource_retriever { };
+
+  urdf = callPackage ../development/ros-modules/urdf { };
+
+  urdfdom_headers = callPackage ../development/ros-modules/urdfdom_headers { };
+
+  urdfdom = callPackage ../development/ros-modules/urdfdom { };
+
+  urdf_parser_plugin = callPackage ../development/ros-modules/urdf_parser_plugin { };
+
   nav_msgs = callPackage ../development/ros-modules/nav_msgs { };
 
   sensor_msgs = callPackage ../development/ros-modules/sensor_msgs { };
@@ -23617,6 +23637,10 @@ in
   uuid_msgs = callPackage ../development/ros-modules/uuid_msgs { };
 
   pcl_msgs = callPackage ../development/ros-modules/pcl_msgs { };
+
+  map_msgs = callPackage ../development/ros-modules/map_msgs { };
+
+  visualization_msgs = callPackage ../development/ros-modules/visualization_msgs { };
 
   tf = callPackage ../development/ros-modules/tf { };
 
