@@ -2,7 +2,8 @@
   python, twisted, jinja2, zope_interface, future, sqlalchemy,
   sqlalchemy_migrate, dateutil, txaio, autobahn, pyjwt, pyyaml, treq,
   txrequests, txgithub, pyjade, boto3, moto, mock, python-lz4, setuptoolsTrial,
-  isort, pylint, flake8, buildbot-worker, buildbot-pkg, glibcLocales }:
+  isort, pylint, flake8, buildbot-worker, buildbot-pkg, parameterized,
+  glibcLocales }:
 
 let
   withPlugins = plugins: buildPythonPackage {
@@ -24,11 +25,11 @@ let
 
   package = buildPythonPackage rec {
     pname = "buildbot";
-    version = "1.8.1";
+    version = "2.3.0";
 
     src = fetchPypi {
       inherit pname version;
-      sha256 = "1zadmyrlk7p9h1akmbzwa7p90s7jwsxvdx4xn9i54dnda450m3a7";
+      sha256 = "1fdahbpihs93pj640y2079yilca6w7vlwirfcz221885ih148257";
     };
 
     propagatedBuildInputs = [
@@ -63,6 +64,7 @@ let
       flake8
       buildbot-worker
       buildbot-pkg
+      parameterized
       glibcLocales
     ];
 
@@ -83,6 +85,8 @@ let
       export LC_ALL="en_US.UTF-8"
       export PATH="$out/bin:$PATH"
     '';
+
+    disabled = !isPy3k;
 
     passthru = {
       inherit withPlugins;

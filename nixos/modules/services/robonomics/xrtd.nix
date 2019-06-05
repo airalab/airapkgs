@@ -10,7 +10,7 @@ in {
     services.xrtd = {
       enable = mkEnableOption "Robonomics.network provider daemon.";
 
-      hexKeyfile = mkOption {
+      keyfile = mkOption {
         type = types.str;
         description = "Hex encoded private key file";
       };
@@ -39,18 +39,25 @@ in {
         description = "ENS registry address";
       };
 
+      local = mkOption {
+        type = types.bool;
+        default = false;
+        description = "XRTd local mode (mining)";
+      };
+
     };
   };
 
   config = mkIf cfg.enable {
     systemd.services.xrtd = {
-      wants = [ "ipfs.service" ];
+      requires = [ "ipfs.service" ];
+      after = [ "ipfs.service" ];
       wantedBy = [ "multi-user.target" ];
 
-      path = with pkgs; [ bash ipfs ];
+      path = with pkgs; [ bash getent ipfs ];
 
       script = ''
-        ${pkgs.robonomics-tools}/bin/xrtd --private "$(cat ${cfg.hexKeyfile})" ${optionalString (cfg.web3_provider != "") "--web3 \"${cfg.web3_provider}\""} ${optionalString (cfg.ipfs_provider != "") "--ipfs \"${cfg.ipfs_provider}\""} ${optionalString (cfg.lighthouse != "") "--lighthouse \"${cfg.lighthouse}\""} ${optionalString (cfg.ens != "") "--ens \"${cfg.ens}\""} 
+        ${pkgs.robonomics-tools}/bin/xrtd --private "$(cat ${cfg.keyfile})" ${optionalString (cfg.web3_provider != "") "--web3 \"${cfg.web3_provider}\""} ${optionalString (cfg.ipfs_provider != "") "--ipfs \"${cfg.ipfs_provider}\""} ${optionalString (cfg.lighthouse != "") "--lighthouse \"${cfg.lighthouse}\""} ${optionalString (cfg.ens != "") "--ens \"${cfg.ens}\""} ${optionalString cfg.local "-l"}
       '';
 
       serviceConfig = {

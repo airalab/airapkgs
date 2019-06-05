@@ -88,21 +88,6 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    # Enable dependencies
-    services = {
-      # IPFS network client
-      ipfs = {
-        enable = true;
-        pubsubExperiment = true;
-        extraConfig = {
-          Bootstrap = [
-            "/dns4/lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8"
-            "/dns6/h.lighthouse.aira.life/tcp/4001/ipfs/QmdfQmbmXt6sqjZyowxPUsmvBsgSGQjm4VXrV7WGy62dv8"
-          ];
-        };
-      };
-    };
-
     systemd.services.liability = {
       requires = [ "ipfs.service" "roscore.service" ];
       after = [ "ipfs.service" "roscore.service" ];

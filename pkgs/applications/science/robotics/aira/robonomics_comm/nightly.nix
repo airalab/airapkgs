@@ -7,8 +7,8 @@
 }:
 
 let
-  rev = "73eaaa5493dc2088546755c18f83a7c0a26e7a3f";
-  sha256 = "0w4dldiyqxxr54v1sik0nm4962hwi5fg784b7885vsc6jxwgjkp6";
+  rev = "4a921c441cab33f69bf3604e3c3a7ddf9c46ed31";
+  sha256 = "0i66fdjg00v3gfyf90vyrba3jvvhp6i64h7x454y2yg4nz1hbvnl";
 
 in mkRosPackage rec {
   name = "${pname}-${version}";

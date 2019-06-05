@@ -6,7 +6,6 @@ let
   cfg = config.services.erc20;
 
   mainnetEns = "0x314159265dD8dbb310642f98f50C066173C1259b";
-  erc20_token = "xrt.4.robonomics.eth";
   liabilityHome = "/var/lib/liability";
   keyfile = "${liabilityHome}/keyfile";
   keyfile_password_file = "${liabilityHome}/keyfile-psk";
@@ -26,7 +25,6 @@ in {
 
       token = mkOption {
         type = types.str;
-        default = erc20_token;
         description = "ERC20 token to control.";
       };
 

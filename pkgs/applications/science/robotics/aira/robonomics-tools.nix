@@ -1,44 +1,31 @@
-{ mkDerivation, aeson, async, base, base58-bytestring, bytestring
-, concurrent-machines, containers, cryptonite, data-default
-, exceptions, generics-sop, hashable, hpack, machines, memory
+{ mkDerivation, aeson, async, base, base58string, bytestring
+, exceptions, generics-sop, hashable, hpack, pipes, memory
 , microlens, monad-control, monad-logger, mtl, optparse-applicative
-, process, secp256k1-haskell, stdenv, text, web3, fetchFromGitHub
+, containers, cryptonite, data-default, process, stdenv, text, web3
+, fetchFromGitHub
 }:
 
 mkDerivation rec {
   pname = "robonomics-tools";
-  version = "0.4.0.0";
+  version = "0.5.1.0";
 
   src = fetchFromGitHub {
     owner = "airalab";
     repo = pname;
     rev = "v${version}";
-    sha256 = "1gl38ifwvzij6xyp3cf5n83fbkv66v721dla7r8vxq3wy21hb2rx";
+    sha256 = "1cv8mfx7gzic2xxsfhallhap1c50b6fwxc4rwr8xm7adwxbbwslb";
   };
 
-  isLibrary = true;
+  isLibrary = false;
   isExecutable = true;
 
-  libraryHaskellDepends = [
-    aeson async base base58-bytestring bytestring concurrent-machines
-    containers cryptonite data-default exceptions generics-sop hashable
-    machines memory microlens monad-control monad-logger mtl
-    optparse-applicative process text web3
-  ];
-  libraryToolDepends = [ hpack ];
+  preConfigure = "${hpack}/bin/hpack";
   executableHaskellDepends = [
-    aeson async base base58-bytestring bytestring concurrent-machines
-    containers cryptonite data-default exceptions generics-sop hashable
-    machines memory microlens monad-control monad-logger mtl
+    aeson async base base58string bytestring pipes
+    containers cryptonite data-default exceptions generics-sop
+    memory microlens monad-control monad-logger mtl hashable
     optparse-applicative process text web3
   ];
-  testHaskellDepends = [
-    aeson async base base58-bytestring bytestring concurrent-machines
-    containers cryptonite data-default exceptions generics-sop hashable
-    machines memory microlens monad-control monad-logger mtl
-    optparse-applicative process text web3
-  ];
-  preConfigure = "hpack";
 
   homepage = "https://github.com/airalab/robonomics-tools#readme";
   description = "Robonomics.network tools";

@@ -22,13 +22,13 @@ in stdenv.mkDerivation rec {
       owner = "airalab";
       repo = pname;
       rev = version;
-      sha256 = "12d2davqd9av08pqydpaxmihb0dpn1ikll8y84sjvkzds6hxb5gp";
+      sha256 = "17lrlsfczjc9j80y0v7svpxlayc011gl8g10xpwp2kkdpb9f45bb";
   };
 
   prePatch = ''
     ln -s config.js.example config.js
     mkdir node_modules
-    cp -R ${nodePackages."openzeppelin-solidity-2.1.2"}/lib/node_modules/openzeppelin-solidity node_modules
+    cp -R ${nodePackages."openzeppelin-solidity-2.1.3"}/lib/node_modules/openzeppelin-solidity node_modules
     cp -R ${nodePackages."truffle-5.0.2"}/lib/node_modules/truffle node_modules
     chmod 755 node_modules/truffle/build/
     chmod 755 node_modules/truffle/build/cli.bundled.js
