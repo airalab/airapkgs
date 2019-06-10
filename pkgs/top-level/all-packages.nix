@@ -10195,6 +10195,8 @@ in
 
   eigen2 = callPackage ../development/libraries/eigen/2.0.nix {};
 
+  eigen3_3 = eigen;
+
   vmmlib = callPackage ../development/libraries/vmmlib {
     inherit (darwin.apple_sdk.frameworks) Accelerate CoreGraphics CoreVideo;
   };
@@ -24185,6 +24187,10 @@ in
 
   rosgraph_msgs = callPackage ../development/ros-modules/rosgraph_msgs { };
 
+  control_msgs = callPackage ../development/ros-modules/control_msgs { };
+
+  trajectory_msgs = callPackage ../development/ros-modules/trajectory_msgs { };
+
   cpp_common = callPackage ../development/ros-modules/cpp_common { };
 
   roscpp_serialization = callPackage ../development/ros-modules/roscpp_serialization { };
@@ -24210,6 +24216,12 @@ in
   rosconsole = callPackage ../development/ros-modules/rosconsole { };
 
   rosconsole_bridge = callPackage ../development/ros-modules/rosconsole_bridge { };
+
+  rviz = callPackage ../development/ros-modules/rviz { } ;
+
+  interactive_markers = callPackage ../development/ros-modules/interactive_markers { } ;
+
+  laser_geometry = callPackage ../development/ros-modules/laser_geometry { } ;
 
   roslang = callPackage ../development/ros-modules/roslang { };
 
@@ -24253,6 +24265,12 @@ in
 
   topic_tools = callPackage ../development/ros-modules/topic_tools { };
 
+  teleop_tools = callPackage ../development/ros-modules/teleop_tools { };
+
+  key_teleop = callPackage ../development/ros-modules/key_teleop { };
+
+  teleop_twist_keyboard = callPackage ../development/ros-modules/teleop_twist_keyboard { };
+
   ros_comm = callPackage ../development/ros-modules/ros_comm { };
 
   actionlib_msgs = callPackage ../development/ros-modules/actionlib_msgs { };
@@ -24279,11 +24297,43 @@ in
 
   mavros = callPackage ../development/ros-modules/mavros { };
 
+  joy = callPackage ../development/ros-modules/joy { };
+
+  pcl_ros = callPackage ../development/ros-modules/pcl_ros { };
+
+  pcl_conversions = callPackage ../development/ros-modules/pcl_conversions { };
+
+  dynamic_reconfigure = callPackage ../development/ros-modules/dynamic_reconfigure { };
+
+  nodelet = callPackage ../development/ros-modules/nodelet { };
+
+  nodelet_topic_tools = callPackage ../development/ros-modules/nodelet_topic_tools { };
+
+  bondcpp = callPackage ../development/ros-modules/bondcpp { };
+
+  bond = callPackage ../development/ros-modules/bond { };
+
+  smclib = callPackage ../development/ros-modules/smclib { };
+
   mavros_msgs = callPackage ../development/ros-modules/mavros_msgs { };
 
   orocos_kdl = callPackage ../development/ros-modules/orocos_kdl { };
 
   angles = callPackage ../development/ros-modules/angles { };
+
+  media_export = callPackage ../development/ros-modules/media_export { };
+
+  python_qt_binding = callPackage ../development/ros-modules/python_qt_binding { };
+
+  resource_retriever = callPackage ../development/ros-modules/resource_retriever { };
+
+  urdf = callPackage ../development/ros-modules/urdf { };
+
+  urdfdom_headers = callPackage ../development/ros-modules/urdfdom_headers { };
+
+  urdfdom = callPackage ../development/ros-modules/urdfdom { };
+
+  urdf_parser_plugin = callPackage ../development/ros-modules/urdf_parser_plugin { };
 
   nav_msgs = callPackage ../development/ros-modules/nav_msgs { };
 
@@ -24298,6 +24348,12 @@ in
   geographic_msgs = callPackage ../development/ros-modules/geographic_msgs { };
 
   uuid_msgs = callPackage ../development/ros-modules/uuid_msgs { };
+
+  pcl_msgs = callPackage ../development/ros-modules/pcl_msgs { };
+
+  map_msgs = callPackage ../development/ros-modules/map_msgs { };
+
+  visualization_msgs = callPackage ../development/ros-modules/visualization_msgs { };
 
   tf = callPackage ../development/ros-modules/tf { };
 
@@ -24354,9 +24410,4 @@ in
   geographiclib = callPackage ../development/libraries/science/geographiclib { };
 
   djiosdk = callPackage ../development/libraries/science/robotics/djiosdk { };
-
-  websocket-star-rendezvous = nodePackages.libp2p-websocket-star-rendezvous;
-
-  bemenu = callPackage ../applications/misc/bemenu { };
-
 }

@@ -1,6 +1,14 @@
 { stdenv, buildGoPackage, fetchFromGitHub }:
 
-buildGoPackage rec {
+let
+  fetchgx' = fetchgx.override {
+    go = go_1_11;
+    gx = gx.override { buildGoPackage = buildGo111Package; };
+    gx-go = gx-go.override { buildGoPackage = buildGo111Package; }; 
+  };
+  buildGoPackage = buildGo111Package; 
+
+in buildGoPackage rec {
   name = "ipfs-${version}";
   version = "0.4.20";
   rev = "v${version}";
