@@ -3,7 +3,7 @@
 
 buildGoPackage rec {
   name = "yggdrasil-go-unstable-${version}";
-  version = "0.3.5";
+  version = "0.3.9";
   rev = "v${version}";
 
   goPackagePath = "github.com/yggdrasil-network/yggdrasil-go";
@@ -12,7 +12,7 @@ buildGoPackage rec {
     owner = "yggdrasil-network";
     repo = "yggdrasil-go";
     rev = "v${version}";
-    sha256 = "0cbj9hqrgn93jlybf3mfpffb68yyizxlvrsh1s5q21jv2lhhjcwj";
+    sha256 = "1qn3p8450y95b8f9zy2j8mndwb19ypnk77vgw0yd412ppaiynj3l";
   };
 
   prePatch = ''
