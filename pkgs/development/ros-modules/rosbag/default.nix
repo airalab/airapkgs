@@ -37,7 +37,7 @@ in mkRosPackage {
   propagatedBuildInputs =
   [ catkin cpp_common genmsg genpy rosbag_storage rosconsole std_srvs
     roscpp roscpp_serialization roslib rospy topic_tools xmlrpcpp
-    pluginlib openssl python3Packages.python-gnupg python3Packages.pycrypto python3Packages.pycryptodome ];
+    pluginlib openssl python3Packages.python-gnupg python3Packages.pycrypto python3Packages.pycryptodomex ];
 
   meta = with stdenv.lib; {
     description = "Set of tools for recording from and playing back to ROS topics";
