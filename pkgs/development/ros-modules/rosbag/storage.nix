@@ -12,6 +12,7 @@
 , pluginlib
 , gpgme
 , openssl
+, std_msgs
 }:
 
 let
@@ -26,12 +27,12 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "0wx70hmm75ahgy0m6xq8qawf9lq7g7dnhkwapmnm8craml720lnl";
+    sha256 = "0x7rgxaga2hadix1j6phl8a8mi5189yrhsmia8m8kd8xflywcqsr";
   };
 
   propagatedBuildInputs = [ catkin cpp_common console_bridge roscpp_serialization
                             roscpp_traits roslz4 bzip2 rostime
-                            pluginlib gpgme openssl ];
+                            pluginlib gpgme openssl std_msgs ];
 
   meta = with stdenv.lib; {
     description = "This is a set of tools for recording from and playing back ROS message without relying on the ROS client library";

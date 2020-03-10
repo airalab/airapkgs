@@ -3,6 +3,7 @@
 , fetchFromGitHub
 , catkin
 , lz4
+, cpp_common
 }:
 
 let
@@ -17,10 +18,10 @@ in mkRosPackage {
     owner = "ros-gbp";
     repo = "ros_comm-release";
     rev = "release/${rosdistro}/${pname}/${version}-0";
-    sha256 = "1f3ar4jpmmv9w8rgf4hdyp4vdhly01ym3pc2faaacf6lcyxzrmcn";
+    sha256 = "1qydbxrsv7vgv125vr37fqyzych83nr09578j53f0rhyb78xygrq";
   };
 
-  propagatedBuildInputs = [ catkin lz4 ];
+  propagatedBuildInputs = [ catkin lz4 cpp_common ];
 
   meta = with stdenv.lib; {
     description = "A Python and C++ implementation of the LZ4 streaming format";
